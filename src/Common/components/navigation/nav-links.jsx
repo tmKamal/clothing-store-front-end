@@ -9,20 +9,20 @@ const NavLinks = () => {
   return (
     <ul className="nav-links">
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/users" exact>
           ALL USERS
         </NavLink>
       </li>
 
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/u1/places">MY PLACES</NavLink>
+          <NavLink to="/u1/places">MY ITEMS</NavLink>
         </li>
       )}
 
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/places/new">ADD PLACES</NavLink>
+          <NavLink to="/places/new">ADD ITEMS</NavLink>
         </li>
       )}
 
