@@ -7,6 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Users from "./admin/pages/admins";
+import Categories from "./category/pages/categories";
 import MainNavigation from "./common/components/navigation/main-navigation";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./common/context/auth-context";
@@ -18,7 +19,6 @@ function App() {
   const login = useCallback((uid) => {
     setIsLoggedIn(true);
     setUserId(uid);
-    
   }, []);
   const logout = useCallback(() => {
     setIsLoggedIn(false);
@@ -30,21 +30,26 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact>
+          <Categories></Categories>
+        </Route>
+        <Route path="/users" exact>
           <Users></Users>
         </Route>
         
-        
-        
+
         <Redirect to="/"></Redirect>
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-        <Route path="/" exact>
+        <Route path="/users" exact>
           <Users></Users>
         </Route>
-        
+        <Route path="/" exact>
+          <Categories></Categories>
+        </Route>
+
         <Route path="/auth">
           <Auth></Auth>
         </Route>
@@ -54,15 +59,18 @@ function App() {
   }
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn,userId:userId, login: login, logout: logout }}
+      value={{
+        isLoggedIn: isLoggedIn,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
     >
       <Router>
         <Route path="/">
           <MainNavigation></MainNavigation>
         </Route>
-        <main>
-          {routes}
-        </main>
+        <main>{routes}</main>
       </Router>
     </AuthContext.Provider>
   );
