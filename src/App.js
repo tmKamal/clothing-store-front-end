@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 import Users from "./admin/pages/admins";
 import Categories from "./category/pages/categories";
-import MainNavigation from "./common/components/navigation/main-navigation";
+import MainNavigation from "./Common/components/navigation/main-navigation";
 import Auth from "./admin/pages/authentication";
-import { AuthContext } from "./common/context/auth-context";
+import { AuthContext } from "./Common/context/auth-context";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

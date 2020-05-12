@@ -4,17 +4,27 @@ import './category-list.scss';
 
 const CategoryList=(props)=>{
     return(
-        <ul className='categorys-list'>
-            {props.items.map((category=><CategoryItem
-                key={category.id}
-                id={category.id}
-                image={category.image}
-                name={category.name}
+        // <ul className='categorys-list'>
+        //     {props.items.map((category=><CategoryItem
+        //         key={category.id}
+        //         id={category.id}
+        //         image={category.image}
+        //         name={category.name}
                 
-            >
+        //     >
 
-            </CategoryItem>))}
-        </ul>
+        //     </CategoryItem>))}
+        // </ul>
+
+        <div className='directory-menu'>
+            {props.items.map((category=><CategoryItem
+                    key={category.id}
+                    id={category.id}
+                    image={category.image}
+                    name={category.name}>
+
+                </CategoryItem>))}
+        </div>  
     )
 }
 export default CategoryList;    

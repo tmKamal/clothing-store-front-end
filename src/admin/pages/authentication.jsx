@@ -1,17 +1,17 @@
 import React, { useState, useContext } from "react";
-import Input from "../../common/components/form-elements/input/input";
+import Input from "../../Common/components/form-elements/input/input";
 import "./authentication.scss";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
-} from "../../common/util/validators/validators";
-import { useForm } from "../../common/custom-hooks/form-hook";
-import Button from "../../common/components/form-elements/button";
-import Card from "../../common/components/UIElements/card/card";
-import { AuthContext } from "../../common/context/auth-context";
-import ErrorModal from "../../common/components/UIElements/model/error-model";
-import LoadingSpinner from "../../common/components/UIElements/loading-spinner/loading-spinner";
+} from "../../Common/util/validators/validators";
+import { useForm } from "../../Common/custom-hooks/form-hook";
+import Button from "../../Common/components/form-elements/button";
+import Card from "../../Common/components/UIElements/card/card";
+import { AuthContext } from "../../Common/context/auth-context";
+import ErrorModal from "../../Common/components/UIElements/model/error-model";
+import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
 
 const Auth = () => {
   const auth = useContext(AuthContext); //useContext is a special one, which will help us to pass some data obj without using props. we can use it like session.
