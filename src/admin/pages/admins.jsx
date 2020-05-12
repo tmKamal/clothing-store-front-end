@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useHttpClient } from "../../common/custom-hooks/http-hook";
+import { useHttpClient } from "../../Common/custom-hooks/http-hook";
 import UserList from "../components/user-list/user-list";
-import ErrorModal from "../../common/components/UIElements/model/error-model";
-import LoadingSpinner from "../../common/components/UIElements/loading-spinner/loading-spinner";
+import ErrorModal from "../../Common/components/UIElements/model/error-model";
+import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
 
 const Users = () => {
   const {isLoading,error,sendRequest,errorPopupCloser}=useHttpClient();

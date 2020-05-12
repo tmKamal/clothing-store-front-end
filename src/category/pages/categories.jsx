@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useHttpClient } from "../../common/custom-hooks/http-hook";
+import { useHttpClient } from "../../Common/custom-hooks/http-hook";
 
 import CategoryList from "../components/category-list/category-list"
-import ErrorModal from "../../common/components/UIElements/model/error-model";
-import LoadingSpinner from "../../common/components/UIElements/loading-spinner/loading-spinner";
+import ErrorModal from "../../Common/components/UIElements/model/error-model";
+import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
 
 const Categories = () => {
   const {isLoading,error,sendRequest,errorPopupCloser}=useHttpClient();
