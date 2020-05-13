@@ -9,6 +9,7 @@ import {
 import Users from "./admin/pages/admins";
 import Categories from "./category/pages/categories";
 import MainNavigation from "./Common/components/navigation/main-navigation";
+import NewCategory from "./category/pages/new-category";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
 
@@ -35,6 +36,9 @@ function App() {
         <Route path="/users" exact>
           <Users></Users>
         </Route>
+        <Route path="/new-category">
+          <NewCategory></NewCategory>
+        </Route>
         
 
         <Redirect to="/"></Redirect>
@@ -48,6 +52,9 @@ function App() {
         </Route>
         <Route path="/" exact>
           <Categories></Categories>
+        </Route>
+        <Route path="/new-category">
+          <NewCategory></NewCategory>
         </Route>
 
         <Route path="/auth">
