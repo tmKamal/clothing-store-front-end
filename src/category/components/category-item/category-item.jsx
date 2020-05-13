@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './category-item.scss';
 
+
 const CategoryItem = (props) => {
 	console.log(props);
 	return (
@@ -9,7 +10,7 @@ const CategoryItem = (props) => {
 			<div
 				className='background-img'
 				style={{
-					backgroundImage: `url(${props.image})`
+					backgroundImage: `url(http://localhost:9000/${props.image})`
 				}}
 			/>
 			<div className='content'>
@@ -18,6 +19,7 @@ const CategoryItem = (props) => {
 			</div>
 		</Link>
 	);
+
 };
 
 export default CategoryItem;
