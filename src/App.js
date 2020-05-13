@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -8,25 +9,27 @@ import {
 } from "react-router-dom";
 import Users from "./admin/pages/admins";
 import Categories from "./category/pages/categories";
+import ProductsByCat from './components/products/ProductsByCat';
 import MainNavigation from "./Common/components/navigation/main-navigation";
 import NewCategory from "./category/pages/new-category";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(false);
 
-  const login = useCallback((uid) => {
-    setIsLoggedIn(true);
-    setUserId(uid);
-  }, []);
-  const logout = useCallback(() => {
-    setIsLoggedIn(false);
-    setUserId(null);
-  }, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
+function App () {
+	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+	const [ userId, setUserId ] = useState(false);
 
-  let routes;
+	const login = useCallback((uid) => {
+		setIsLoggedIn(true);
+		setUserId(uid);
+	}, []);
+	const logout = useCallback(() => {
+		setIsLoggedIn(false);
+		setUserId(null);
+	}, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
+
+let routes;
   if (isLoggedIn) {
     routes = (
       <Switch>
@@ -39,7 +42,9 @@ function App() {
         <Route path="/new-category">
           <NewCategory></NewCategory>
         </Route>
-        
+        <Route exact path='/cat/:id'>
+					<ProductsByCat />
+				</Route>
 
         <Redirect to="/"></Redirect>
       </Switch>
@@ -56,7 +61,9 @@ function App() {
         <Route path="/new-category">
           <NewCategory></NewCategory>
         </Route>
-
+      <Route exact path='/cat/:id'>
+					<ProductsByCat />
+				</Route>
         <Route path="/auth">
           <Auth></Auth>
         </Route>
@@ -82,5 +89,6 @@ function App() {
     </AuthContext.Provider>
   );
 }
+
 
 export default App;
