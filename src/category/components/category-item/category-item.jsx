@@ -8,7 +8,7 @@ const CategoryItem = props => {
     to={`/${props.id}/items`}>
       <div className='background-img'
           style={{
-              backgroundImage: `url(${props.image})`
+              backgroundImage: `url(http://localhost:9000/${props.image})`
           }} />
       <div className='content'>
           <h1 className='title'>{props.name}</h1>
