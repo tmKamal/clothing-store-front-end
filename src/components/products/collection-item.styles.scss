@@ -1,0 +1,88 @@
+$break-small: 420px;
+$break-medium: 965px;
+$break-large: 1200px;
+
+.collection-item {
+	width: 20vw;
+	display: flex;
+	flex-direction: column;
+	height: 350px;
+	align-items: center;
+	position: relative;
+	margin: 10px;
+
+	@media screen and (max-width: $break-small) {
+		width: 45vw !important;
+		height: 240px !important;
+	}
+	@media screen and (max-width: $break-medium) {
+		width: 30vw;
+		height: 270px;
+	}
+
+	.image {
+		width: 100%;
+		height: 95%;
+		background-size: cover;
+		background-position: center;
+		margin-bottom: 5px;
+	}
+
+	button {
+		width: 80%;
+		opacity: 0.7;
+		position: absolute;
+		top: 75%;
+		display: none;
+		min-width: 10px;
+
+		@media screen and (max-width: $break-small) {
+			top: 70%;
+			display: flex;
+			padding: 0;
+		}
+		@media screen and (max-width: $break-medium) {
+			top: 70%;
+			display: flex;
+			padding: 0;
+		}
+	}
+
+	&:hover {
+		.image {
+			opacity: 0.8;
+		}
+
+		button {
+			opacity: 0.85;
+			display: flex;
+		}
+	}
+	.collection-footer {
+		width: 100%;
+		height: 5%;
+		display: flex;
+		justify-content: space-between;
+		font-size: 18px;
+
+		.name {
+			width: 60%;
+			margin-bottom: 15px;
+		}
+
+		.price {
+			width: 40%;
+			text-align: center;
+		}
+	}
+
+	.cut {
+		text-decoration: line-through;
+		color: red;
+	}
+
+	.discount {
+		font-weight: 600;
+		color: green;
+	}
+}
