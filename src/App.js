@@ -12,6 +12,7 @@ import Categories from "./category/pages/categories";
 import ProductsByCat from './components/products/ProductsByCat';
 import MainNavigation from "./Common/components/navigation/main-navigation";
 import NewCategory from "./category/pages/new-category";
+import NewProduct from "./components/products/new-product";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
 
@@ -36,11 +37,15 @@ let routes;
         <Route path="/" exact>
           <Categories></Categories>
         </Route>
+        
         <Route path="/users" exact>
           <Users></Users>
         </Route>
-        <Route path="/new-category">
+        <Route path="/new-category" exact>
           <NewCategory></NewCategory>
+        </Route>
+        <Route path="/new-product" exact>
+          <NewProduct></NewProduct>
         </Route>
         <Route exact path='/cat/:id'>
 					<ProductsByCat />
@@ -58,9 +63,10 @@ let routes;
         <Route path="/" exact>
           <Categories></Categories>
         </Route>
-        <Route path="/new-category">
+        <Route path="/new-category" exact>
           <NewCategory></NewCategory>
         </Route>
+        
       <Route exact path='/cat/:id'>
 					<ProductsByCat />
 				</Route>
