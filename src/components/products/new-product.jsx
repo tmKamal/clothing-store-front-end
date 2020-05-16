@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Input from "../../Common/components/form-elements/input/input";
 import ImageHandler from "../../Common/components/form-elements/image-handler/image-handler";
@@ -6,17 +6,19 @@ import { VALIDATOR_REQUIRE } from "../../Common/util/validators/validators";
 import Button from "../../Common/components/form-elements/button";
 import { useForm } from "../../Common/custom-hooks/form-hook";
 import { useHttpClient } from "../../Common/custom-hooks/http-hook";
-import Dropdown from "../../Common/components/form-elements/dropdown/dropdown"
+import Dropdown from "../../Common/components/form-elements/dropdown/dropdown";
 import ErrorModal from "../../Common/components/UIElements/model/error-model";
 import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
+import { AuthContext } from "../../Common/context/auth-context";
 import "./new-product.scss";
 
 const NewProduct = () => {
-    
+  const auth = useContext(AuthContext);
+
   const history = useHistory(); // to redirect the user to new location.
 
   const { isLoading, error, sendRequest, errorPopupCloser } = useHttpClient();
-  const [selectedCategory,setSelectedCategory]=useState();
+  const [selectedCategory, setSelectedCategory] = useState();
 
   const [formState, inputHandler] = useForm(
     {
@@ -41,17 +43,14 @@ const NewProduct = () => {
         value: null,
         isValid: false,
       },
-      
     },
     false
   );
   /* Retriving Categories for dropDown */
-  
+
   const [loadedCategories, setLoadedCategories] = useState();
 
-  const handleChange=(e)=>{
-      console.log(e.target.value);
-  }
+  
 
   useEffect(() => {
     // we have use useEffect hook to stop the infinite loop. otherwise fetch will rerender to all the changes.
@@ -64,24 +63,21 @@ const NewProduct = () => {
         );
 
         setLoadedCategories(responseData.categories); //this is the key of the JSON response - view the backend code for more.
-        
       } catch (err) {}
     };
     fetchCategories();
-    
   }, [sendRequest]);
-
-  
 
   const productSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(formState.inputs);
+   
     /* 
     In here, we have to pass a image too, but images has a binary data type
     so we can't pass binary data using JSON.
     therefore, we have to use FormData, which is a browser API.
     */
     try {
+      
       const formData = new FormData();
       formData.append("name", formState.inputs.name.value); //fist parameter is the key, we will catch this requst in backend using this key.
       formData.append("price", formState.inputs.price.value);
@@ -89,8 +85,13 @@ const NewProduct = () => {
       formData.append("qty", formState.inputs.qty.value);
       formData.append("category", selectedCategory);
       formData.append("image", formState.inputs.image.value);
-      await sendRequest("http://localhost:9000/api/product/", "POST", formData);
-      console.log(formState.inputs);
+      await sendRequest(
+        "http://localhost:9000/api/product/",
+        "POST",
+        formData,
+        { Authorization: 'Bearer ' + auth.token }
+      );
+      
       history.push("/"); //redirecting user to main page
     } catch (err) {}
   };
@@ -137,8 +138,17 @@ const NewProduct = () => {
           validators={[VALIDATOR_REQUIRE()]}
         ></Input>
         <ImageHandler id="image" center onInput={inputHandler}></ImageHandler>
-        
-        {!isLoading&&loadedCategories&&<Dropdown id="cats" label="Category" menuArr={loadedCategories} changer={e=>{setSelectedCategory(e.target.value)}}></Dropdown>}
+
+        {!isLoading && loadedCategories && (
+          <Dropdown
+            id="cats"
+            label="Category"
+            menuArr={loadedCategories}
+            changer={(e) => {
+              setSelectedCategory(e.target.value);
+            }}
+          ></Dropdown>
+        )}
 
         <Button type="submit" disabled={!formState.isValid}>
           Add product
