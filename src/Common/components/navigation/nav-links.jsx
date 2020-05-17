@@ -17,12 +17,7 @@ const NavLinks = () => {
 
 			{auth.isLoggedIn && (
 				<li>
-					<NavLink to='/u1/places'>MY ITEMS</NavLink>
-				</li>
-			)}
-			{auth.isLoggedIn && (
-				<li>
-					<NavLink to='/new-category'>Create Category</NavLink>
+					<NavLink to='/new-category'>Add Category</NavLink>
 				</li>
 			)}
 
@@ -34,7 +29,7 @@ const NavLinks = () => {
 
 			{auth.isLoggedIn && (
 				<li>
-					<NavLink to='/places/new'>ADD ITEMS</NavLink>
+					<NavLink to='/new-product'>Add Products</NavLink>
 				</li>
 			)}
 

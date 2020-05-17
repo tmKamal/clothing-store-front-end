@@ -64,6 +64,7 @@ const Auth = () => {
            because they are also a valid response.
            so we have to handle them manually.
         */
+
 				const response = await fetch('http://localhost:9000/api/admin/login', {
 					method: 'POST',
 					headers: {
@@ -81,9 +82,8 @@ const Auth = () => {
 				}
 				console.log(responseData);
 				setIsLoading(false);
-				window.localStorage.setItem('adminId', responseData.admin.id);
-				console.log(window.localStorage.getItem('adminId'));
-				auth.login(responseData.admin.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
+				window.localStorage.setItem('adminId', responseData.userId);
+				auth.login(responseData.userId, responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
 			} catch (err) {
 				console.log(err);
 				setIsLoading(false);
@@ -114,8 +114,7 @@ const Auth = () => {
 				}
 				console.log(responseData);
 				setIsLoading(false);
-
-				auth.login(responseData.admin.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
+				auth.login(responseData.userId, responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
 			} catch (err) {
 				console.log(err);
 				setIsLoading(false);
