@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {useHistory} from "react-router-dom";// to redirect the user to new location
 import Input from "../../Common/components/form-elements/input/input";
 import ImageHandler from "../../Common/components/form-elements/image-handler/image-handler";
@@ -12,9 +12,11 @@ import { useHttpClient } from "../../Common/custom-hooks/http-hook";
 
 import ErrorModal from "../../Common/components/UIElements/model/error-model";
 import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
+import {AuthContext} from "../../Common/context/auth-context";
 import './new-category.scss';
 
 const NewCategory = () => {
+  const auth = useContext(AuthContext);
   const history=useHistory();// to redirect the user to new location.
   
   const { isLoading, error, sendRequest, errorPopupCloser } = useHttpClient();
@@ -49,7 +51,7 @@ const NewCategory = () => {
       await sendRequest(
         "http://localhost:9000/api/categories/",
         "POST",
-        formData 
+        formData,{ Authorization: 'Bearer ' + auth.token } 
       );
       console.log(formState.inputs);
       history.push('/'); //redirecting user to main page

@@ -55,74 +55,73 @@ const Auth = () => {
 		false
 	);
 
-	const submitHandler = async (event) => {
-		event.preventDefault();
-		setIsLoading(true);
-		if (isLoginMode) {
-			try {
-				/* fetch is not handles the error throwing from backend as 404, 500, etc.
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    if (isLoginMode) {
+      try {
+        /* fetch is not handles the error throwing from backend as 404, 500, etc.
            because they are also a valid response.
            so we have to handle them manually.
         */
-				const response = await fetch('http://localhost:9000/api/admin/login', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						//json to js
-						email: formState.inputs.email.value,
-						password: formState.inputs.password.value
-					})
-				});
-				const responseData = await response.json();
-				if (!response.ok) {
-					throw new Error(responseData.message); // this will execute the catch block.
-				}
-				console.log(responseData);
-				setIsLoading(false);
-				window.localStorage.setItem('adminId', responseData.admin.id);
-				console.log(window.localStorage.getItem('adminId'));
-				auth.login(responseData.admin.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
-			} catch (err) {
-				console.log(err);
-				setIsLoading(false);
-				setError(err.message || 'something went wrong!!!');
-			}
-		} else {
-			//SIGN UP
-			try {
-				/* fetch is not handles the error throwing from backend as 404, 500, etc.
+       
+        const response = await fetch("http://localhost:9000/api/admin/login", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({//json to js
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+        });
+        const responseData = await response.json();
+        if (!response.ok) {
+          
+          throw new Error(responseData.message); // this will execute the catch block.
+        }
+        console.log(responseData);
+        setIsLoading(false);
+        window.localStorage.setItem('adminId', responseData.admin.id);
+        auth.login(responseData.userId,responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+        setError(err.message || "something went wrong!!!");
+      }
+    } else {
+      //SIGN UP
+      try {
+        /* fetch is not handles the error throwing from backend as 404, 500, etc.
            because they are also a valid response.
            so we have to handle them manually.
         */
-				const response = await fetch('http://localhost:9000/api/admin/signup', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						name: formState.inputs.name.value,
-						email: formState.inputs.email.value,
-						password: formState.inputs.password.value
-					})
-				});
-				const responseData = await response.json();
-				if (!response.ok) {
-					console.log('whhhayyyy');
-					throw new Error(responseData.message); // this will execute the catch block.
-				}
-				console.log(responseData);
-				setIsLoading(false);
-
-				auth.login(responseData.admin.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
-			} catch (err) {
-				console.log(err);
-				setIsLoading(false);
-				setError(err.message || 'something went wrong!!!');
-			}
-		}
-	};
+        const response = await fetch("http://localhost:9000/api/admin/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+        });
+        const responseData = await response.json();
+        if (!response.ok) {
+          console.log("whhhayyyy");
+          throw new Error(responseData.message); // this will execute the catch block.
+        }
+        console.log(responseData);
+        setIsLoading(false);
+        auth.login(responseData.userId,responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+        setError(err.message || "something went wrong!!!");
+      }
+    }
+  };
 
 	const errorModalCloser = () => {
 		setError(null);
