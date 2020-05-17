@@ -82,7 +82,7 @@ const Auth = () => {
 				}
 				console.log(responseData);
 				setIsLoading(false);
-				window.localStorage.setItem('adminId', responseData.userId);
+				window.localStorage.setItem('adminId', responseData.admin.id);
 				auth.login(responseData.userId, responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
 			} catch (err) {
 				console.log(err);

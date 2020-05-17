@@ -8,8 +8,10 @@ import ProductsByCat from './components/products/ProductsByCat';
 import MainNavigation from './Common/components/navigation/main-navigation';
 import NewCategory from './category/pages/new-category';
 import NewProduct from './components/products/new-product';
+import Product from './components/view-product/product';
 import Auth from './admin/pages/authentication';
 import { AuthContext } from './Common/context/auth-context';
+import Cart from './components/cart/cart.component';
 
 function App () {
 	const [ token, setToken ] = useState(false);
@@ -92,8 +94,14 @@ function App () {
 				<Route path='/new-product' exact>
 					<NewProduct />
 				</Route>
+				<Route exact path='/product/:id'>
+					<Product />
+				</Route>
 				<Route exact path='/cat/:id'>
 					<ProductsByCat />
+				</Route>
+				<Route exact path='/cart'>
+					<Cart />
 				</Route>
 
 				<Redirect to='/' />
@@ -112,9 +120,13 @@ function App () {
 					<NewCategory />
 				</Route>
 
+				<Route exact path='/product/:id'>
+					<Product />
+				</Route>
 				<Route exact path='/cat/:id'>
 					<ProductsByCat />
 				</Route>
+
 				<Route path='/auth'>
 					<Auth />
 				</Route>
