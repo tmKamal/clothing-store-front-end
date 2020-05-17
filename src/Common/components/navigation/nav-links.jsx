@@ -7,6 +7,7 @@ import CartIcon from "../../../components/cart-icon/cart-icon";
 const NavLinks = () => {
   const auth = useContext(AuthContext);
 
+
   return (
     <ul className="nav-links">
       <li>
@@ -33,6 +34,7 @@ const NavLinks = () => {
           <NavLink to="/new-product">Add Products</NavLink>
         </li>
       )}
+
 
       {!auth.isLoggedIn && (
         <li>

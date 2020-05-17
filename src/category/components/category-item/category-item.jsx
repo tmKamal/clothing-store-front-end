@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './category-item.scss';
 
-
 const CategoryItem = (props) => {
-	console.log(props);
 	return (
 		<Link className={`menu-item`} to={`/cat/${props.id}`} key={props.id}>
 			<div
@@ -19,7 +17,6 @@ const CategoryItem = (props) => {
 			</div>
 		</Link>
 	);
-
 };
 
 export default CategoryItem;

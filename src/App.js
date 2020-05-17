@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 
+
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -15,11 +16,12 @@ import NewCategory from "./category/pages/new-category";
 import NewProduct from "./components/products/new-product";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
-
+import Cart from './components/cart/cart.component';
 function App() {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
   const [tokenExpAuto, setTokenExpAuto] = useState();
+
 
   let logoutTime;
 
@@ -95,9 +97,15 @@ function App() {
         <Route path="/new-product" exact>
           <NewProduct></NewProduct>
         </Route>
-        <Route exact path="/cat/:id">
-          <ProductsByCat />
-        </Route>
+        <Route exact path='/product/:id'>
+					<Product />
+				</Route>
+				<Route exact path='/cat/:id'>
+					<ProductsByCat />
+				</Route>
+				<Route exact path='/cart'>
+					<Cart />
+				</Route>
 
         <Redirect to="/"></Redirect>
       </Switch>
@@ -115,9 +123,13 @@ function App() {
           <NewCategory></NewCategory>
         </Route>
 
-        <Route exact path="/cat/:id">
-          <ProductsByCat />
-        </Route>
+        <Route exact path='/product/:id'>
+					<Product />
+				</Route>
+				<Route exact path='/cat/:id'>
+					<ProductsByCat />
+				</Route>
+				
         <Route path="/auth">
           <Auth></Auth>
         </Route>
@@ -144,5 +156,6 @@ function App() {
     </AuthContext.Provider>
   );
 }
+
 
 export default App;
