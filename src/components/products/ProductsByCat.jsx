@@ -13,7 +13,7 @@ const ProductsByCat = ({ getProducts, products: { prds, loading } }) => {
 		() => {
 			getProducts(id);
 		},
-		[ getProducts ]
+		[ getProducts, id ]
 	);
 	let a = null;
 	if (!loading) {
@@ -27,7 +27,7 @@ const ProductsByCat = ({ getProducts, products: { prds, loading } }) => {
 			) : (
 				<Fragment>
 					<h1 className='text primary'>Products</h1>
-					{a.length == 0 ? (
+					{a.length === 0 ? (
 						<div>No products</div>
 					) : (
 						<div className='flex-container'>

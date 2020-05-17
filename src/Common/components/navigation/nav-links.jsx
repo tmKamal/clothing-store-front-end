@@ -15,18 +15,16 @@ const NavLinks = () => {
 				</NavLink>
 			</li>
 
-
-      {auth.isLoggedIn && (
-        <li>
-          <NavLink to="/u1/places">MY ITEMS</NavLink>
-        </li>
-      )}
-      {auth.isLoggedIn && (
-        <li>
-          <NavLink to="/new-category">Create Category</NavLink>
-        </li>
-      )}
-
+			{auth.isLoggedIn && (
+				<li>
+					<NavLink to='/u1/places'>MY ITEMS</NavLink>
+				</li>
+			)}
+			{auth.isLoggedIn && (
+				<li>
+					<NavLink to='/new-category'>Create Category</NavLink>
+				</li>
+			)}
 
 			{auth.isLoggedIn && (
 				<li>
