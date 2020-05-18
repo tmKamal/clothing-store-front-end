@@ -4,7 +4,8 @@ import {
 	LOAD_CART_CHECKOUT,
 	CLEAR_ITEM_FROM_CART,
 	REDUCE_QTY,
-	INCREASE_QTY
+	INCREASE_QTY,
+	CLEAR_STORE
 } from '../actions/types';
 import {
 	addItemToCart,
@@ -63,6 +64,10 @@ export default function (state = initialState, action) {
 				checkoutItems: increaseCheckoutQuantity(state.checkoutItems, payload)
 			};
 		}
+		case CLEAR_STORE:
+			return {
+				initialState
+			};
 		default:
 			return state;
 	}

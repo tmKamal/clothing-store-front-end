@@ -12,7 +12,7 @@ export const addItemToCart = (cartItems, newItem) => {
 	if (exsitingitem) {
 		try {
 			const item = {};
-			item.user = newItem.user;
+
 			item.product = newItem.product;
 			item.qty = '+1';
 			axios.post('/api/cart/updateqty', item, config);

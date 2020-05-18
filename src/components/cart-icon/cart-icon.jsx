@@ -10,8 +10,10 @@ import './cart-icon.styles.css';
 const CartIcon = ({ loadCartCheckout, loadCart, itemCount }) => {
 	useEffect(
 		() => {
-			loadCartCheckout();
-			loadCart();
+			setTimeout(() => {
+				loadCartCheckout();
+				loadCart();
+			}, 1000);
 		},
 		[ loadCartCheckout, loadCart ]
 	);
