@@ -15,6 +15,7 @@ import NewCategory from "./category/pages/new-category";
 import NewProduct from "./components/products/new-product";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
+import UserAuth from "./user/pages/user-auth";
 
 function App() {
   const [token, setToken] = useState(false);
@@ -28,7 +29,7 @@ function App() {
     setUserId(uid);
     let tokenExp;
     if (!tokenExpDate) {
-      tokenExp = new Date(new Date().getTime() + 4000); //Creating a new Expiration date => current time+1hr
+      tokenExp = new Date(new Date().getTime() + 1000*60*60); //Creating a new Expiration date => current time+1hr
       setTokenExpAuto(tokenExp);
     } else {
       tokenExp = tokenExpDate; //Assigning the old date
@@ -120,6 +121,9 @@ function App() {
         </Route>
         <Route path="/auth">
           <Auth></Auth>
+        </Route>
+        <Route path="/user-auth">
+          <UserAuth></UserAuth>
         </Route>
         <Redirect to="/auth"></Redirect>
       </Switch>
