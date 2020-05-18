@@ -61,13 +61,12 @@ const Cart = ({ checkoutItems, loading, loadCartCheckout, total }) => {
 									))}
 								</Fragment>
 							)}
+							<div className='total'>
+								<span>TOTAL : LKR {total}</span>
+							</div>
+							{/* <StripeCheckoutButton price={total}/> */}
 						</Fragment>
 					)}
-
-					<div className='total'>
-						<span>TOTAL : LKR {total}</span>
-					</div>
-					{/* <StripeCheckoutButton price={total}/> */}
 				</Fragment>
 			) : (
 				' '

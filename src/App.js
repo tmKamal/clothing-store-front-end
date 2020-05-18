@@ -12,6 +12,7 @@ import Product from './components/view-product/product';
 import Auth from './admin/pages/authentication';
 import { AuthContext } from './Common/context/auth-context';
 import Cart from './components/cart/cart.component';
+import WishListPage from './components/wishlist/wishlistpage';
 import setAxiosToken from './axiosutils/setAxiosToken';
 
 function App () {
@@ -106,6 +107,9 @@ function App () {
 				<Route exact path='/cart'>
 					<Cart />
 				</Route>
+				<Route exact path='/wishlist'>
+					<WishListPage />
+				</Route>
 
 				<Redirect to='/' />
 			</Switch>
@@ -131,6 +135,9 @@ function App () {
 				</Route>
 				<Route exact path='/cart'>
 					<Cart />
+				</Route>
+				<Route exact path='/wishlist'>
+					<WishListPage />
 				</Route>
 				<Route path='/auth'>
 					<Auth />
