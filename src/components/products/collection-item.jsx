@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addItem } from '../../actions/cart';
+import { addItem, loadCart } from '../../actions/cart';
 import './collection-item.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -9,10 +10,11 @@ const CollectionItem = ({ product, addItem }) => {
 	const { name, price, image, discount } = product;
 	return (
 		<div className='collection-item'>
-			<div
+			<Link
+				to={`/product/${product._id}`}
 				className='image'
 				style={{
-					backgroundImage: `url(http://localhost:9000/${image})`
+					backgroundImage: `url(${image})`
 				}}
 			/>
 			<div className='collection-footer'>
@@ -32,4 +34,4 @@ CollectionItem.propTypes = {
 	addItem: PropTypes.func.isRequired
 };
 
-export default connect(null, { addItem })(CollectionItem);
+export default connect(null, { addItem, loadCart })(CollectionItem);
