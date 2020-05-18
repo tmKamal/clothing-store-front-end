@@ -27,6 +27,12 @@ const NavLinks = () => {
 				</li>
 			)}
 
+			{auth.isLoggedIn && (
+				<li>
+					<CartIcon />
+				</li>
+			)}
+
 			{!auth.isLoggedIn && (
 				<li>
 					<NavLink to='/auth'>AUTH</NavLink>

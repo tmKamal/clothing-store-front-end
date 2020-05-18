@@ -1,22 +1,23 @@
 import axios from 'axios';
 
-import { ADD_ITEM, LOAD_CART, LOAD_CART_CHECKOUT, CLEAR_ITEM_FROM_CART, REDUCE_QTY, INCREASE_QTY } from './types';
+import {
+	ADD_ITEM,
+	LOAD_CART,
+	LOAD_CART_CHECKOUT,
+	CLEAR_ITEM_FROM_CART,
+	REDUCE_QTY,
+	INCREASE_QTY,
+	CLEAR_STORE
+} from './types';
 
-let userid; //set user id
 const config = {
 	headers: {
 		'Content-Type': 'application/json'
 	}
 };
 export const loadCart = () => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	try {
 		const body = {};
-		body.user = userid;
 
 		const res = await axios.post('/api/cart/load', body, config);
 
@@ -30,14 +31,8 @@ export const loadCart = () => async (dispatch) => {
 };
 
 export const loadCartCheckout = () => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	try {
 		const body = {};
-		body.user = userid;
 
 		const res = await axios.post('/api/cart/loadcheckout', body, config);
 
@@ -45,19 +40,20 @@ export const loadCartCheckout = () => async (dispatch) => {
 			type: LOAD_CART_CHECKOUT,
 			payload: res.data
 		});
-	} catch (err) {}
+	} catch (err) {
+		window.location.href = '/auth';
+	}
 };
 
 export const addItem = (item, size = 'm') => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	loadCart();
+
 	try {
 		const newItem = {};
-		newItem.user = userid;
+		if (typeof axios.defaults.headers.common['Authrization'] === 'undefined') {
+			window.location.href = '/auth';
+		}
+
 		newItem.product = item._id;
 		newItem.size = size;
 		newItem.qty = 1;
@@ -66,18 +62,14 @@ export const addItem = (item, size = 'm') => async (dispatch) => {
 			type: ADD_ITEM,
 			payload: newItem
 		});
-	} catch (err) {}
+	} catch (err) {
+		window.location.href = '/auth';
+	}
 };
 
 export const clearItemFromCart = (item) => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	try {
 		const newItem = {};
-		newItem.user = userid;
 		newItem.product = item.product._id;
 
 		dispatch({
@@ -91,14 +83,9 @@ export const clearItemFromCart = (item) => async (dispatch) => {
 };
 
 export const reduceQty = (item) => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	try {
 		const newItem = {};
-		newItem.user = userid;
+
 		newItem.product = item.product._id;
 		newItem.qty = '-1';
 
@@ -112,14 +99,9 @@ export const reduceQty = (item) => async (dispatch) => {
 };
 
 export const increaseQty = (item) => async (dispatch) => {
-	if (window.localStorage.getItem('adminId') !== null) {
-		userid = localStorage.getItem('adminId');
-	} else {
-		window.location.href = '/auth';
-	}
 	try {
 		const newItem = {};
-		newItem.user = userid;
+
 		newItem.product = item.product._id;
 		newItem.qty = '+1';
 
@@ -130,4 +112,10 @@ export const increaseQty = (item) => async (dispatch) => {
 
 		await axios.post('/api/cart/updateqty', newItem, config);
 	} catch (err) {}
+};
+
+export const clearState = () => (dispatch) => {
+	dispatch({
+		type: CLEAR_STORE
+	});
 };

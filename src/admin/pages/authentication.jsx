@@ -80,9 +80,9 @@ const Auth = () => {
 				if (!response.ok) {
 					throw new Error(responseData.message); // this will execute the catch block.
 				}
-				console.log(responseData);
+				//console.log(responseData);
 				setIsLoading(false);
-				window.localStorage.setItem('adminId', responseData.admin.id);
+				//window.localStorage.setItem('adminId', responseData.userId);
 				auth.login(responseData.userId, responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
 			} catch (err) {
 				console.log(err);

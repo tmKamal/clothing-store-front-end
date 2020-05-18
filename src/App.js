@@ -12,6 +12,7 @@ import Product from './components/view-product/product';
 import Auth from './admin/pages/authentication';
 import { AuthContext } from './Common/context/auth-context';
 import Cart from './components/cart/cart.component';
+import setAxiosToken from './axiosutils/setAxiosToken';
 
 function App () {
 	const [ token, setToken ] = useState(false);
@@ -25,7 +26,7 @@ function App () {
 		setUserId(uid);
 		let tokenExp;
 		if (!tokenExpDate) {
-			tokenExp = new Date(new Date().getTime() + 4000); //Creating a new Expiration date => current time+1hr
+			tokenExp = new Date(new Date().getTime() + 10000 * 60 * 60); //Creating a new Expiration date => current time+1hr
 			setTokenExpAuto(tokenExp);
 		} else {
 			tokenExp = tokenExpDate; //Assigning the old date
@@ -39,12 +40,14 @@ function App () {
 				tokenExp: tokenExp.toISOString() //setting expiration time for the token we have storing in the local storage
 			})
 		);
+		setAxiosToken(token);
 	}, []);
 	const logout = useCallback(() => {
 		setToken(false);
 		setUserId(null);
 		setTokenExpAuto(null);
 		localStorage.removeItem('userData');
+		setAxiosToken(null);
 	}, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
 
 	//Managing token expiration
@@ -126,7 +129,9 @@ function App () {
 				<Route exact path='/cat/:id'>
 					<ProductsByCat />
 				</Route>
-
+				<Route exact path='/cart'>
+					<Cart />
+				</Route>
 				<Route path='/auth'>
 					<Auth />
 				</Route>
