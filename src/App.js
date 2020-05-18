@@ -1,7 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
 
-
-import UserAuth from "./user/pages/user-auth";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Users from './admin/pages/admins';
@@ -14,8 +12,8 @@ import Product from './components/view-product/product';
 import Auth from './admin/pages/authentication';
 import { AuthContext } from './Common/context/auth-context';
 import Cart from './components/cart/cart.component';
+import WishListPage from './components/wishlist/wishlistpage';
 import setAxiosToken from './axiosutils/setAxiosToken';
-
 
 function App () {
 	const [ token, setToken ] = useState(false);
@@ -23,7 +21,6 @@ function App () {
 	const [ tokenExpAuto, setTokenExpAuto ] = useState();
 
 	let logoutTime;
-
 
 	const login = useCallback((uid, token, tokenExpDate) => {
 		setToken(token);
@@ -53,7 +50,6 @@ function App () {
 		localStorage.removeItem('userData');
 		setAxiosToken(null);
 	}, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
-
 
 	//Managing token expiration
 	/* 
@@ -111,6 +107,9 @@ function App () {
 				<Route exact path='/cart'>
 					<Cart />
 				</Route>
+				<Route exact path='/wishlist'>
+					<WishListPage />
+				</Route>
 
 				<Redirect to='/' />
 			</Switch>
@@ -128,7 +127,6 @@ function App () {
 					<NewCategory />
 				</Route>
 
-
 				<Route exact path='/product/:id'>
 					<Product />
 				</Route>
@@ -137,6 +135,9 @@ function App () {
 				</Route>
 				<Route exact path='/cart'>
 					<Cart />
+				</Route>
+				<Route exact path='/wishlist'>
+					<WishListPage />
 				</Route>
 				<Route path='/auth'>
 					<Auth />
@@ -163,7 +164,6 @@ function App () {
 			</Router>
 		</AuthContext.Provider>
 	);
-
 }
 
 export default App;

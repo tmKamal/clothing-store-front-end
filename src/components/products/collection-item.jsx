@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addItem, loadCart } from '../../actions/cart';
 import './collection-item.styles.scss';
+import WishListIcon from '../wishlist-icon/wishlist-icon';
 import CustomButton from '../custom-button/custom-button.component';
 
 const CollectionItem = ({ product, addItem }) => {
 	const { name, price, image, discount } = product;
 	return (
 		<div className='collection-item'>
+			<WishListIcon product={product.id} />
 			<Link
 				to={`/product/${product._id}`}
 				className='image'

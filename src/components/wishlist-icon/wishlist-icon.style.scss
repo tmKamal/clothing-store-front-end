@@ -1,0 +1,24 @@
+.WishListIcon {
+	svg path {
+		opacity: 0.8;
+	}
+	.wish path {
+		fill: white;
+	}
+
+	.wished path {
+		fill: red;
+	}
+
+	&:hover {
+		.wish path {
+			opacity: 1;
+			fill: red;
+		}
+
+		.wished path {
+			opacity: 1;
+			fill: white;
+		}
+	}
+}
