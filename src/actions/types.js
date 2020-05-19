@@ -4,6 +4,7 @@ export const CLEAR_STORE = 'CLEAR_STORE';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
+export const CLEAR_PRODUCT = 'CLEAR_PRODUCT';
 export const PRODUCT_ERROR = 'PRODUCT_ERROR';
 
 //Cart Action types

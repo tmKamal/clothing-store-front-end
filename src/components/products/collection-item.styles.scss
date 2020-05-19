@@ -10,12 +10,14 @@ $break-large: 1200px;
 	align-items: center;
 	position: relative;
 	margin: 10px;
+
 	//flex: 1 0 22%;
 
 	@media screen and (max-width: $break-small) {
 		width: 45vw !important;
 		height: 90vw !important;
 		flex: 1 0 30% !important;
+		margin-bottom: 5%;
 	}
 	@media screen and (max-width: $break-medium) {
 		width: 30vw;

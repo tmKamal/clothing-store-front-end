@@ -16,7 +16,7 @@ const CartIcon = ({ loadCartCheckout, loadCart, itemCount, getWishlist, getWishl
 				loadCart();
 				getWishlist();
 				getWishlistDetails();
-			}, 1000);
+			}, 2000);
 		},
 		[ loadCartCheckout, loadCart ]
 	);
