@@ -27,7 +27,7 @@ function App () {
 		setUserId(uid);
 		let tokenExp;
 		if (!tokenExpDate) {
-			tokenExp = new Date(new Date().getTime() + 10000 * 60 * 60); //Creating a new Expiration date => current time+1hr
+			tokenExp = new Date(new Date().getTime() + 10000 * 60 * 60 * 24); //Creating a new Expiration date => current time+1hr
 			setTokenExpAuto(tokenExp);
 		} else {
 			tokenExp = tokenExpDate; //Assigning the old date
