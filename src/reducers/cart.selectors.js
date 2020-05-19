@@ -12,7 +12,11 @@ export const selectCartItemsCount = createSelector([ selectCartItems ], (cartIte
 export const selectCartTotal = createSelector([ selectCheckoutItems ], (checkoutItems) =>
 	checkoutItems.reduce(
 		(accumalatedTotal, checkoutItem) =>
-			accumalatedTotal + checkoutItem.qty * (checkoutItem.product.price - checkoutItem.product.discount),
+			accumalatedTotal +
+			checkoutItem.qty *
+				(checkoutItem.product.discount
+					? checkoutItem.product.price - checkoutItem.product.discount
+					: checkoutItem.product.price),
 		0
 	)
 );
