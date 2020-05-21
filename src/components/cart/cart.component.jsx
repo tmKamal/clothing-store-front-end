@@ -52,7 +52,7 @@ const Cart = ({ checkoutItems, loading, loadCartCheckout, total }) => {
 						<Fragment> {<LoadingSpinner />} </Fragment>
 					) : (
 						<Fragment>
-							{checkoutItems.length == 0 ? (
+							{checkoutItems.length === 0 ? (
 								<div>no products</div>
 							) : (
 								<Fragment>

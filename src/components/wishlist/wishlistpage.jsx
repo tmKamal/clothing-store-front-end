@@ -22,7 +22,7 @@ function WishListPage ({ wishlistDetails, loading, getWishlistDetails, removeFro
 				</Fragment>
 			) : (
 				<Fragment>
-					{wishlistDetails.length == 0 ? (
+					{wishlistDetails.length === 0 ? (
 						<div>no products</div>
 					) : (
 						<Fragment>

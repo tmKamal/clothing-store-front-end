@@ -18,7 +18,7 @@ const CartIcon = ({ loadCartCheckout, loadCart, itemCount, getWishlist, getWishl
 				getWishlistDetails();
 			}, 2000);
 		},
-		[ loadCartCheckout, loadCart ]
+		[ loadCartCheckout, loadCart, getWishlist, getWishlistDetails ]
 	);
 	return (
 		<Link to='/cart' className='cart-icon'>

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { ReactComponent as WishIcon } from './wishicon.svg';
@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import './wishlist-icon.style.scss';
 import { addToWishlist, removeFromWishList } from '../../actions/wishlist';
 import { AuthContext } from '../../Common/context/auth-context';
-import wishlist from '../../reducers/wishlist';
 
 const WishListIcon = ({ product, addToWishlist, removeFromWishList, wishlistItems }) => {
 	let cls = 'wish';
@@ -23,7 +22,7 @@ const WishListIcon = ({ product, addToWishlist, removeFromWishList, wishlistItem
 			{auth.isLoggedIn ? (
 				<WishIcon
 					className={cls}
-					onClick={() => (cls == 'wished' ? removeFromWishList(product) : addToWishlist(product))}
+					onClick={() => (cls === 'wished' ? removeFromWishList(product) : addToWishlist(product))}
 				/>
 			) : (
 				<WishIcon className='wish' onClick={() => history.push('/auth')} />

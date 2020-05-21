@@ -27,8 +27,8 @@ export default function (state = initialState, action) {
 		case CLEAR_PRODUCT:
 			return {
 				...state,
-				product: null,
-				productLoading: true
+				productLoading: true,
+				product: null
 			};
 		case CLEAR_PRODUCTS:
 			return {
