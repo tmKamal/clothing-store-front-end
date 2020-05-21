@@ -15,7 +15,7 @@ export const addToWishlist = (product) => async (dispatch) => {
 			type: ADD_TO_WISHLIST,
 			payload: p
 		});
-		const res = await axios.post('/api/wishlist', p, config);
+		await axios.post('/api/wishlist', p, config);
 	} catch (err) {}
 };
 
@@ -26,7 +26,7 @@ export const removeFromWishList = (product) => async (dispatch) => {
 			type: REMOVE_FROM_WISHLIST,
 			payload: p
 		});
-		const res = await axios.post('/api/wishlist/removeitem', p, config);
+		await axios.post('/api/wishlist/removeitem', p, config);
 	} catch (err) {}
 };
 
