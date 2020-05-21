@@ -1,0 +1,74 @@
+$break-small: 570px;
+$break-medium: 935px;
+$break-buttons: 1150px;
+$break-large: 1200px;
+
+.add-review {
+  padding: 0;
+  margin: 0 10%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: flex-start;
+  align-content: stretch;
+
+  //   -webkit-box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+  //   -moz-box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+  //   box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  @media screen and (max-width: $break-small) {
+    margin: 5% 5% !important;
+  }
+
+  .star-rate-in,
+  .comment {
+    font-size: 25px;
+    flex: 1 0 auto;
+    padding: 20px;
+
+    @media screen and (max-width: $break-medium) {
+      flex: 1 0 50%;
+    }
+  }
+
+  .star-rate-in {
+    @media screen and (min-width: $break-medium) {
+      text-align: center;
+    }
+  }
+  .comment {
+    @media screen and (max-width: $break-medium) {
+      padding-top: 0;
+    }
+    textarea {
+      font-size: 15px;
+      width: 100%;
+      padding: 0;
+      border: 1px solid black;
+      overflow: auto;
+      outline: none;
+
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+
+      resize: none;
+      @media screen and (max-width: $break-medium) {
+        height: 80px;
+      }
+    }
+    button {
+      float: right;
+
+      width: 100%;
+    }
+  }
+}
