@@ -2,100 +2,146 @@ $break-small: 420px;
 $break-medium: 965px;
 $break-large: 1200px;
 
+.flex-container {
+    margin: 0 10% !important;
+
+    @media screen and (max-width: $break-small) {
+        margin: 0 0 0 0 !important;
+    }
+}
 .collection-item {
-	width: 20vw;
-	display: flex;
-	flex-direction: column;
-	height: 350px;
-	align-items: center;
-	position: relative;
-	margin: 10px;
+    width: 17vw;
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    align-items: center;
+    position: relative;
+    margin: 10px;
 
-	//flex: 1 0 22%;
+    //flex: 1 0 22%;
 
-	@media screen and (max-width: $break-small) {
-		width: 45vw !important;
-		height: 90vw !important;
-		flex: 1 0 30% !important;
-		margin-bottom: 5%;
-	}
-	@media screen and (max-width: $break-medium) {
-		width: 30vw;
-		height: 240px;
-		flex: 1 0 30%;
-	}
+    @media screen and (max-width: $break-small) {
+        width: 45vw !important;
+        height: 90vw !important;
+        flex: 1 0 30% !important;
+        margin-bottom: 5%;
+    }
+    @media screen and (max-width: $break-medium) {
+        width: 30vw;
+        height: 240px;
+        flex: 1 0 30%;
+    }
 
-	svg {
-		width: 15%;
-		position: absolute;
-		top: 3%;
-		right: 4%;
-		z-index: 1;
-	}
+    svg {
+        width: 15%;
+        position: absolute;
+        top: 3%;
+        right: 4%;
+        z-index: 1;
+    }
 
-	.image {
-		width: 100%;
-		height: 95%;
-		background-size: cover;
-		background-position: center;
-		margin-bottom: 5px;
-	}
+    .col-item-rating {
+        position: absolute;
+        top: 5%;
+        left: 3%;
+        z-index: 1;
+        width: 40%;
+        background-color: black;
+        padding: 6px 15px 5px 17px;
+        border-radius: 20px;
+        color: white;
+        display: none;
 
-	button {
-		width: 80%;
-		opacity: 0.7;
-		position: absolute;
-		top: 75%;
-		display: none;
-		min-width: 10px;
+        svg {
+            position: unset !important;
 
-		@media screen and (max-width: $break-small) {
-			top: 70%;
-			display: flex;
-			padding: 0;
-		}
-		@media screen and (max-width: $break-medium) {
-			top: 70%;
-			display: flex;
-			padding: 0;
-		}
-	}
+            @media screen and (max-width: $break-small) {
+                width: 18%;
+            }
+        }
 
-	&:hover {
-		.image {
-			opacity: 0.8;
-		}
+        @media screen and (max-width: $break-small) {
+            top: 2%;
+            display: flex;
+            background-color: white;
+            padding: 8px 16px 5px 16px;
+            color: black;
+        }
+        @media screen and (max-width: $break-medium) {
+            background-color: white;
+            padding: 8px 16px 5px 16px;
+            color: black;
+            display: flex;
+        }
+    }
+    .image {
+        width: 100%;
+        height: 95%;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5px;
+    }
 
-		button {
-			opacity: 0.85;
-			display: flex;
-		}
-	}
-	.collection-footer {
-		width: 100%;
-		height: 5%;
-		display: flex;
-		justify-content: space-between;
-		font-size: 18px;
+    button {
+        width: 80%;
+        opacity: 0.7;
+        position: absolute;
+        top: 75%;
+        display: none;
+        min-width: 10px;
 
-		.name {
-			width: 60%;
-			margin-bottom: 15px;
-		}
+        @media screen and (max-width: $break-small) {
+            top: 70%;
+            display: flex;
+            padding: 0;
+        }
+        @media screen and (max-width: $break-medium) {
+            top: 70%;
+            display: flex;
+            padding: 0;
+        }
+    }
 
-		.price {
-			width: 40%;
-			text-align: center;
-		}
-	}
+    &:hover {
+        .image {
+            opacity: 0.8;
+        }
 
-	.cut {
-		text-decoration: line-through;
-		color: red;
-	}
+        button {
+            opacity: 0.85;
+            display: flex;
+        }
 
-	.discount {
-		font-weight: 600;
-		color: green;
-	}
+        .col-item-rating {
+            display: flex;
+        }
+    }
+    .collection-footer {
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+
+        .name {
+            width: 60%;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            width: 40%;
+            text-align: center;
+        }
+    }
+
+    .cut {
+        text-decoration: line-through;
+        color: red;
+    }
+
+    .discount {
+        font-weight: 600;
+        color: green;
+    }
 }

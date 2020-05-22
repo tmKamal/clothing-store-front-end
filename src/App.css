@@ -1,41 +1,68 @@
 body {
-  font-family: Open Sans Condensed, sans-serif;
+    font-family: Open Sans Condensed, sans-serif;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 sdf .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* .ReactModal__Overlay {
+  position: fixed !important;
+  top: 0% !important;
+  left: 0% !important;
+  right: 0% !important;
+  bottom: 0% !important;
+}
+.ReactModal__Content {
+  position: absolute !important;
+  top: 25% !important;
+  left: 5% !important;
+  right: 5% !important;
+  bottom: 25% !important;
+  border: none;
+  background: rgb(255, 255, 255) !important;
+  overflow: auto !important;
+  border-radius: 4px !important;
+  outline: none !important;
+  padding: 0 !important;
+} */
+.react-modal-close-button {
+    cursor: pointer;
+    padding: 2px 7px;
+
+    margin: 20px;
 }
