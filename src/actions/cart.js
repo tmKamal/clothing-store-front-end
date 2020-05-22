@@ -45,7 +45,7 @@ export const loadCartCheckout = () => async (dispatch) => {
 	}
 };
 
-export const addItem = (item, size = 'm') => async (dispatch) => {
+export const addItem = (item, size = 'm', qty = 1) => async (dispatch) => {
 	loadCart();
 
 	try {
@@ -56,7 +56,7 @@ export const addItem = (item, size = 'm') => async (dispatch) => {
 
 		newItem.product = item._id;
 		newItem.size = size;
-		newItem.qty = 1;
+		newItem.qty = qty;
 
 		dispatch({
 			type: ADD_ITEM,
