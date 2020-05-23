@@ -14,7 +14,7 @@ const CollectionItem = ({ product, addItem }) => {
 				to={`/product/${product._id}`}
 				className='image'
 				style={{
-					backgroundImage: `url(${image})`
+					backgroundImage: `url(http://localhost:9000/${image})`
 				}}
 			/>
 			<div className='collection-footer'>
