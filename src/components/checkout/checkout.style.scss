@@ -1,0 +1,117 @@
+$break-small: 570px;
+$break-medium: 845px;
+$break-buttons: 1150px;
+$break-large: 1200px;
+
+.checkout {
+    margin: 0 5%;
+    box-sizing: border-box;
+
+    .row {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+
+        margin: 0 -16px;
+
+        @media screen and (max-width: $break-medium) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .col-25 {
+        -ms-flex: 25%; /* IE10 */
+        flex: 25%;
+
+        @media screen and (max-width: $break-medium) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .col-50 {
+        -ms-flex: 50%; /* IE10 */
+        flex: 50%;
+    }
+
+    .col-75 {
+        -ms-flex: 75%; /* IE10 */
+        flex: 75%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+        padding: 0 16px;
+    }
+
+    .container {
+        background-color: #ffffff;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        box-shadow: 0px 0px 58px -30px rgba(0, 0, 0, 0.75);
+    }
+
+    input[type='text'] {
+        width: 95%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .cart-checkout {
+        text-align: center;
+    }
+    .icon-container {
+        margin-bottom: 20px;
+        padding: 7px 0;
+        font-size: 24px;
+    }
+
+    .btn {
+        background-color: black;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid black;
+        width: 100%;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: black;
+    }
+
+    a {
+        color: #2196f3;
+    }
+
+    hr {
+        border: 1px solid lightgrey;
+    }
+
+    span.price {
+        float: right;
+        color: grey;
+    }
+
+    .cart-title {
+        float: left;
+    }
+}
+
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}

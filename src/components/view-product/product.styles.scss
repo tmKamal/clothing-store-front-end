@@ -1,0 +1,170 @@
+$break-small: 570px;
+$break-medium: 845px;
+$break-buttons: 1150px;
+$break-large: 1200px;
+
+.view-product {
+    padding: 0;
+    margin: 0 10%;
+    list-style: none;
+    position: relative;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 58px -19px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    @media screen and (max-width: $break-small) {
+        margin: 0 5% !important;
+    }
+
+    .product-image,
+    .product-details {
+        display: flex;
+        width: 45%;
+
+        @media screen and (max-width: $break-small) {
+            width: 45vw !important;
+            flex: 1 0 51% !important;
+        }
+
+        @media screen and (max-width: $break-medium) {
+            width: 30vw;
+            flex: 1 0 51%;
+            text-align: center;
+        }
+    }
+
+    .product-image {
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 28rem;
+        border-radius: 20px 20px 0 0;
+
+        @media screen and (max-width: $break-small) {
+            background-size: cover;
+            height: 80vw !important;
+        }
+
+        @media screen and (max-width: $break-medium) {
+            height: 50vw;
+        }
+    }
+
+    .product-details {
+        padding: 3% 0;
+        flex-flow: column;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .availableqty {
+            font-size: 1.2rem;
+        }
+        .hot-product {
+            padding: 2px 10px;
+            font-weight: 500;
+            font-size: 12px;
+            vertical-align: super;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+        }
+        .price {
+            font-size: 1.2rem;
+            .cutprice {
+                text-decoration: line-through;
+                text-decoration-color: red;
+            }
+
+            .newprice {
+                background-color: #46ea46;
+                border-radius: 10px;
+                padding: 0 10px;
+            }
+        }
+        .size {
+            font-size: 1rem;
+
+            .size-option {
+                padding: 0 8px;
+                margin: 0 10px;
+                cursor: pointer;
+                border: 1px solid black;
+            }
+
+            .selected {
+                color: white;
+                background-color: black;
+            }
+        }
+        .qty {
+            font-size: 1rem;
+
+            .qty-input {
+                width: 20%;
+                padding: 0;
+                height: 25px;
+                border: 1px solid black;
+                overflow: auto;
+                outline: none;
+                text-align: center;
+
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .exceed {
+                color: red;
+            }
+        }
+        .wrapper {
+            position: absolute;
+            width: 45%;
+            bottom: 10%;
+            margin-top: 5%;
+
+            @media screen and (max-width: $break-medium) {
+                position: unset;
+                width: 100%;
+            }
+            .addtocart-button {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                @media screen and (max-width: $break-buttons) {
+                    flex-direction: column-reverse;
+                }
+
+                button {
+                    margin-bottom: 10px;
+                }
+
+                .WishListIcon {
+                    align-self: center;
+                    width: 2rem;
+                }
+            }
+        }
+    }
+}
+
+.facard {
+    align-self: center;
+    margin-right: 10px;
+}
+.modal-close-button {
+    cursor: pointer !important;
+    padding: 2px 7px;
+}

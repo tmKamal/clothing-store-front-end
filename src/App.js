@@ -1,3 +1,4 @@
+
 import React, { useCallback, useState, useEffect } from "react";
 
 import UserAuth from "./user/pages/user-auth";
@@ -17,8 +18,12 @@ import NewProduct from "./components/products/new-product";
 import Product from "./components/view-product/product";
 import Auth from "./admin/pages/authentication";
 import { AuthContext } from "./Common/context/auth-context";
-import Cart from "./components/cart/cart.component";
-import setAxiosToken from "./axiosutils/setAxiosToken";
+import Cart from './components/cart/cart.component';
+import WishListPage from './components/wishlist/wishlistpage';
+import setAxiosToken from './axiosutils/setAxiosToken';
+import Checkout from './components/checkout/checkout.component';
+
+
 import AdminPannel from "./Common/admin-pannel/admin-pannel";
 import ContentContainer from "./Common/admin-pannel/admin-content-container/admin-content-container";
 import AdminWrapper from "./Common/admin-pannel/wrapper/wrapper";
@@ -75,6 +80,7 @@ function App() {
     yet we have to handle that logout to happen automatically using a useEffect.
     2nd useEffect is here for that.
   */
+
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("userData"));
     if (
@@ -235,6 +241,7 @@ function App() {
       {IsLoading ? <Router>{routes}</Router>:<div>{IsLoading}</div>}
     </AuthContext.Provider>
   );
+
 }
 
 export default App;
