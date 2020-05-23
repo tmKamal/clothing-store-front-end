@@ -76,7 +76,7 @@ const Cart = ({
                             <Link
                                 to='/checkout'
                                 onClick={() =>
-                                    checkout(checkoutItems, null, total)
+                                    checkout(checkoutItems, null, null, total)
                                 }
                             >
                                 {' '}

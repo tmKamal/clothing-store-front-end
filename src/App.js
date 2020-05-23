@@ -1,6 +1,4 @@
-
 import React, { useCallback, useState, useEffect } from "react";
-
 import UserAuth from "./user/pages/user-auth";
 import "./App.css";
 import {
@@ -22,7 +20,7 @@ import Cart from './components/cart/cart.component';
 import WishListPage from './components/wishlist/wishlistpage';
 import setAxiosToken from './axiosutils/setAxiosToken';
 import Checkout from './components/checkout/checkout.component';
-
+import OrdersPage from './components/orders-page/orders.component';
 
 import AdminPannel from "./Common/admin-pannel/admin-pannel";
 
@@ -68,6 +66,7 @@ function App() {
     setTokenExpAuto(null);
     
     localStorage.removeItem("userData");
+	localStorage.clear();
     console.log("auto logged out");
     setAxiosToken(null);
   }, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
@@ -184,6 +183,18 @@ function App() {
         <Route path="/" exact>
           <Categories />
         </Route>
+		<Route exact path='/cart'>
+            <Cart />
+        </Route>
+        <Route exact path='/wishlist'>
+            <WishListPage />
+        </Route>
+        <Route path='/checkout' exact>
+             <Checkout />
+        </Route>
+        <Route path='/orders' exact>
+            <OrdersPage />
+         </Route>
         <Route path="/auth">
           <Auth />
         </Route>
