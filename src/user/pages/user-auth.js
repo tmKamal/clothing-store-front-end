@@ -13,6 +13,7 @@ import { AuthContext } from "../../Common/context/auth-context";
 import ErrorModal from "../../Common/components/UIElements/model/error-model";
 import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
 
+
 const UserAuth = () => {
   const auth = useContext(AuthContext); //useContext is a special one, which will help us to pass some data obj without using props. we can use it like session.
 
@@ -86,7 +87,7 @@ const UserAuth = () => {
         }
         console.log(responseData);
         setIsLoading(false);
-        auth.login(responseData.userId,responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
+        auth.login(responseData.userId,responseData.token,responseData.role); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
       } catch (err) {
         console.log(err);
         setIsLoading(false);
@@ -117,7 +118,7 @@ const UserAuth = () => {
         }
         console.log(responseData);
         setIsLoading(false);
-        auth.login(responseData.userId,responseData.token); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
+        auth.login(responseData.userId,responseData.token,responseData.role); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
       } catch (err) {
         console.log(err);
         setIsLoading(false);

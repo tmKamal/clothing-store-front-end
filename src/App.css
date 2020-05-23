@@ -29,9 +29,72 @@ sdf .App-logo {
 
 .App-link {
     color: #61dafb;
+
+  }
+
+  /* Admin pannel wrapper */
+  #wrapper{
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
+#wrapper.toggled{
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100vh;
+    max-height: 100vh;
+    margin-left: -250px;
+    padding-top: 5px;
+    overflow: hidden;
+    background-color:#fff;
+    font-weight: 400;
+    color: #47484A; /*sidebar font color */
+    opacity: 0.9;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77); 
+    box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77);
+    display: flex;/* flex properties */
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#wrapper.toggled #sidebar-wrapper{
+    width: 250px;
+
+}
+
+#page-content-wrapper{
+    width: 100%;
+    position: absolute;
+
+}
+
+#wrapper.toggled #page-content-wrapper{
+    position: absolute;
+    margin-right: -250px;
+
+}
+
+  /* Admin pannel wrapper End*/
+
+
+  
+
+
 @keyframes App-logo-spin {
+
     from {
         transform: rotate(0deg);
     }

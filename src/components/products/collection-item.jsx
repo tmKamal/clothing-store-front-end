@@ -9,6 +9,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ product, addItem }) => {
+
     const { name, price, image, discount } = product;
     let all = 0;
 
@@ -33,11 +34,12 @@ const CollectionItem = ({ product, addItem }) => {
                 to={`/product/${product._id}`}
                 className='image'
                 style={{
-                    backgroundImage: `url(${image})`
+                    backgroundImage: `url(http://localhost:9000/${image})`
                 }}
             />
             <div className='collection-footer'>
                 <span className='name'>{name}</span>
+
 
                 <span className={`price ${discount ? 'cut' : ''}`}>
                     $ &nbsp;{price}

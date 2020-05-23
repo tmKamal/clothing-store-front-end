@@ -4,7 +4,7 @@ import UserList from "../components/user-list/user-list";
 import ErrorModal from "../../Common/components/UIElements/model/error-model";
 import LoadingSpinner from "../../Common/components/UIElements/loading-spinner/loading-spinner";
 
-const Users = () => {
+const Admins = () => {
   const {isLoading,error,sendRequest,errorPopupCloser}=useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState();
 
@@ -37,4 +37,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Admins;
