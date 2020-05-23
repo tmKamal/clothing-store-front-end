@@ -25,7 +25,7 @@ import Checkout from './components/checkout/checkout.component';
 
 
 import AdminPannel from "./Common/admin-pannel/admin-pannel";
-import ContentContainer from "./Common/admin-pannel/admin-content-container/admin-content-container";
+
 import AdminWrapper from "./Common/admin-pannel/wrapper/wrapper";
 import NewManager from "./admin/pages/add-manager";
 
