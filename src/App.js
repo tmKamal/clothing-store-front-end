@@ -215,13 +215,13 @@ function App() {
           <Route exact path="/cart">
             <Cart />
           </Route>
-          <Route path="/auth">
+          <Route path="/auth">{/* Admin logins */}
             <Auth />
           </Route>
           <Route path="/auth-user">
             <UserAuth></UserAuth>
           </Route>
-          <Redirect to="/auth" />
+          <Redirect to="/auth-user" />
         </Switch>
       </React.Fragment>
     );
