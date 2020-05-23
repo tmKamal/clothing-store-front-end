@@ -15,6 +15,7 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const CLEAR_ITEM_FROM_CART = 'CLEAR_ITEM_FROM_CART';
 export const REDUCE_QTY = 'REDUCE_QTY';
 export const INCREASE_QTY = 'INCREASE_QTY';
+export const CLEAR_CART = 'CLEAR_CART';
 
 //Wishlist types
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
@@ -25,3 +26,5 @@ export const GET_WISHLIST_DETAILS = ' GET_WISHLIST_DETAILS';
 //Order types
 export const CHECKOUT = 'CHECKOUT';
 export const CLEAR_CHECKOUT = 'CLEAR_CHECKOUT';
+export const ORDER_PROCESSING = 'ORDER_PROCESSING';
+export const SET_ORDER_ITEMS = 'SET_ORDER_ITEMS';

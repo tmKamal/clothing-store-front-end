@@ -1,0 +1,42 @@
+$break-small: 420px;
+$break-medium: 1087px;
+$break-large: 1200px;
+
+.ordered-product {
+    width: 10rem;
+    margin: 10px;
+    text-align: center;
+    background-color: #04335812;
+    padding: 10px;
+
+    @media screen and (max-width: $break-small) {
+        border: none;
+        margin: 2px;
+        padding: 5px;
+    }
+    .ordered-product-img {
+        height: 10rem;
+    }
+    .ordered-product-name {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 80%;
+        padding: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        border: none;
+        cursor: pointer;
+    }
+    .review {
+        background-color: black;
+        color: white;
+    }
+
+    .reviewed {
+        background-color: #2fd405;
+        color: black;
+        font-weight: 600;
+    }
+}

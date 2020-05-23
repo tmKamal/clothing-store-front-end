@@ -40,26 +40,6 @@ sdf .App-logo {
     }
 }
 
-/* .ReactModal__Overlay {
-  position: fixed !important;
-  top: 0% !important;
-  left: 0% !important;
-  right: 0% !important;
-  bottom: 0% !important;
-}
-.ReactModal__Content {
-  position: absolute !important;
-  top: 25% !important;
-  left: 5% !important;
-  right: 5% !important;
-  bottom: 25% !important;
-  border: none;
-  background: rgb(255, 255, 255) !important;
-  overflow: auto !important;
-  border-radius: 4px !important;
-  outline: none !important;
-  padding: 0 !important;
-} */
 .react-modal-close-button {
     cursor: pointer;
     padding: 2px 7px;

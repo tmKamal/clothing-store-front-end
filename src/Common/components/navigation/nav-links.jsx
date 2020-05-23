@@ -26,7 +26,11 @@ const NavLinks = () => {
                     <NavLink to='/new-product'>Add Products</NavLink>
                 </li>
             )}
-
+            {auth.isLoggedIn && (
+                <li>
+                    <NavLink to='/orders'>My Orders</NavLink>
+                </li>
+            )}
             {auth.isLoggedIn && (
                 <li>
                     <NavLink to='/wishlist'>Wishlist</NavLink>

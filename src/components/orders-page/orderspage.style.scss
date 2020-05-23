@@ -1,0 +1,11 @@
+$break-small: 420px;
+$break-medium: 965px;
+$break-large: 1200px;
+
+.order-page {
+    margin: 0 10%;
+
+    @media screen and (max-width: $break-medium) {
+        margin: 0 5%;
+    }
+}

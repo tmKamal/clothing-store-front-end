@@ -235,7 +235,7 @@ const Product = ({
                 <br />
                 <Link
                     to='/checkout'
-                    onClick={() => checkout(product, qty, total)}
+                    onClick={() => checkout(product, qty, size, total)}
                 >
                     <CustomButton>
                         <FaCcVisa className='facard' size={30} /> CARD

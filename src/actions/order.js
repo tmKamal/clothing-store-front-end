@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { CHECKOUT, CLEAR_CHECKOUT } from './types';
+import {
+    CHECKOUT,
+    CLEAR_CHECKOUT,
+    ORDER_PROCESSING,
+    SET_ORDER_ITEMS,
+    CLEAR_CART
+} from './types';
 
 const config = {
     headers: {
@@ -7,7 +13,7 @@ const config = {
     }
 };
 
-export const checkout = (products, qty, total) => async (dispatch) => {
+export const checkout = (products, qty, size, total) => async (dispatch) => {
     dispatch({
         type: CLEAR_CHECKOUT
     });
@@ -22,9 +28,7 @@ export const checkout = (products, qty, total) => async (dispatch) => {
                             ? product.product.discount
                             : 0))
             );
-            if (qty) {
-                items.qty = qty;
-            }
+
             items.products = products;
             items.total = total;
 
@@ -37,6 +41,9 @@ export const checkout = (products, qty, total) => async (dispatch) => {
             items.products = products;
             if (qty) {
                 items.qty = qty;
+            }
+            if (size) {
+                items.size = size;
             }
             if (products.discount) {
                 items.price = products.price - products.discount;
@@ -52,5 +59,114 @@ export const checkout = (products, qty, total) => async (dispatch) => {
         }
     } catch (err) {
         console.error(err);
+    }
+};
+
+export const placeOrder = (prods, address, payment) => async (dispatch) => {
+    try {
+        dispatch({
+            type: ORDER_PROCESSING,
+            payload: 1
+        });
+        const products = prods.products;
+        const total = prods.total;
+        const newOrder = [];
+
+        if (products.length > 0) {
+            products.map((product) => {
+                let pr = {};
+                pr.product = product.product._id;
+                pr.qty = product.qty;
+                pr.price = product.price;
+                pr.size = product.size;
+                newOrder.push(pr);
+            });
+        } else {
+            let pr = {};
+            pr.product = products.id;
+            pr.qty = prods.qty;
+            pr.price = prods.price;
+            pr.size = prods.size;
+            newOrder.push(pr);
+        }
+
+        const body = {
+            products: newOrder,
+            address: address,
+            total: total,
+            payment: payment
+        };
+
+        const res = await axios.post('/api/order/', body, config);
+        dispatch({
+            type: ORDER_PROCESSING,
+            payload: 2
+        });
+        dispatch({
+            type: SET_ORDER_ITEMS,
+            payload: res.data.orders
+        });
+
+        if (products.length > 0) {
+            await axios.post('api/cart/clearcart', null, config);
+            console.log('clear');
+            dispatch({
+                type: CLEAR_CART
+            });
+        }
+        setTimeout(() => {
+            dispatch({
+                type: ORDER_PROCESSING,
+                payload: 0
+            });
+
+            dispatch({
+                type: CLEAR_CHECKOUT
+            });
+        }, 5000);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const getOrderedItems = () => async (dispatch) => {
+    try {
+        const res = await axios.get('/api/order/items');
+        dispatch({
+            type: SET_ORDER_ITEMS,
+            payload: res.data.orders
+        });
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const setOrderComplete = (orderId) => async (dispatch) => {
+    try {
+        const body = {};
+        body.orderId = orderId;
+        const res = await axios.post('/api/order/complete/', body, config);
+        dispatch({
+            type: SET_ORDER_ITEMS,
+            payload: res.data.orders
+        });
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const itemReviewd = (pid, oid) => async (dispatch) => {
+    try {
+        const body = {};
+        body.orderId = oid;
+        body.product = pid;
+
+        const res = await axios.post('/api/order/rated', body, config);
+        dispatch({
+            type: SET_ORDER_ITEMS,
+            payload: res.data.orders
+        });
+    } catch (err) {
+        console.log(err);
     }
 };
