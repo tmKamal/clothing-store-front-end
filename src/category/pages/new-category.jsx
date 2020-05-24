@@ -61,6 +61,7 @@ const NewCategory = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={errorPopupCloser}></ErrorModal>
+      <h1 className="admin-title">New Category</h1>
       <form className="place-form" onSubmit={categorySubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
         <Input

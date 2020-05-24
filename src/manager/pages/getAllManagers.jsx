@@ -27,6 +27,7 @@ const Managers = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={errorPopupCloser}></ErrorModal>
+      <h1 className="admin-title">Managers</h1>
       {isLoading && (
         <div className="center">
           <LoadingSpinner></LoadingSpinner>

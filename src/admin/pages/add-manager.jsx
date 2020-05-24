@@ -67,6 +67,7 @@ const NewManager = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={errorPopupCloser}></ErrorModal>
+      <h1 className="admin-title">New Manager</h1>
       <form className="place-form" onSubmit={managerSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
         <Input
