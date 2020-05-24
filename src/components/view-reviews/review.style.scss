@@ -1,0 +1,50 @@
+@import 'node_modules/bootstrap/scss/bootstrap-grid';
+
+$break-small: 420px;
+$break-medium: 800px;
+$break-large: 1200px;
+
+.rating-component {
+    padding-left: 5% !important;
+
+    @media screen and (max-width: $break-medium) {
+        padding-left: 10% !important;
+        margin-bottom: 5%;
+    }
+    .row {
+        @media screen and (max-width: $break-medium) {
+            flex-direction: row;
+        }
+    }
+    .user-image {
+        max-width: 4rem;
+        min-height: 4rem;
+        max-height: 4rem;
+        border-radius: 50px;
+        background-size: cover;
+    }
+
+    .username {
+        font-size: 1rem;
+        font-weight: 600;
+        padding-left: 0;
+        .rating {
+            font-size: 1rem;
+            padding-left: 0;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+
+    .rating {
+        font-size: 1rem;
+        padding-left: 0;
+    }
+    .comment {
+        background-color: #f1f1ef;
+        height: 5rem;
+        font-size: 1.1rem;
+        /* border: 1px solid; */
+        padding: 1%;
+    }
+}
