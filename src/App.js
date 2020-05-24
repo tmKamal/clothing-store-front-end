@@ -166,7 +166,24 @@ function App() {
                     <Route path='/new-category' exact>
                         <NewCategory />
                     </Route>
-
+                    <Route exact path='/product/:id'>
+                        <Product />
+                    </Route>
+                    <Route exact path='/cat/:id'>
+                        <ProductsByCat />
+                    </Route>
+                    <Route exact path='/cart'>
+                        <Cart />
+                    </Route>
+                    <Route exact path='/wishlist'>
+                        <WishListPage />
+                    </Route>
+                    <Route path='/checkout' exact>
+                        <Checkout />
+                    </Route>
+                    <Route path='/orders' exact>
+                        <OrdersPage />
+                    </Route>
                     <Redirect to='/' />
                 </Switch>
             </React.Fragment>
@@ -183,18 +200,6 @@ function App() {
                 </Route>
                 <Route path='/' exact>
                     <Categories />
-                </Route>
-                <Route exact path='/cart'>
-                    <Cart />
-                </Route>
-                <Route exact path='/wishlist'>
-                    <WishListPage />
-                </Route>
-                <Route path='/checkout' exact>
-                    <Checkout />
-                </Route>
-                <Route path='/orders' exact>
-                    <OrdersPage />
                 </Route>
                 <Route exact path='/product/:id'>
                     <Product />
@@ -223,7 +228,9 @@ function App() {
                     <Route path='/' exact>
                         <Categories />
                     </Route>
-
+                    <Route path='/orders' exact>
+                        <OrdersPage />
+                    </Route>
                     <Route exact path='/product/:id'>
                         <Product />
                     </Route>
@@ -245,7 +252,6 @@ function App() {
             </React.Fragment>
         );
     }
-
     return (
         <AuthContext.Provider
             value={{

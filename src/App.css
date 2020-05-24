@@ -1,5 +1,7 @@
 body {
-    font-family: Open Sans Condensed, sans-serif;
+    font-family: Open Sans Condensed, sans-serif !important;
+    color: #000 !important;
+    background-color: #ffffff !important;
 }
 
 .App {
@@ -29,11 +31,10 @@ sdf .App-logo {
 
 .App-link {
     color: #61dafb;
+}
 
-  }
-
-  /* Admin pannel wrapper */
-  #wrapper{
+/* Admin pannel wrapper */
+#wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -41,7 +42,7 @@ sdf .App-logo {
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled{
+#wrapper.toggled {
     padding-left: 250px;
 }
 
@@ -55,46 +56,38 @@ sdf .App-logo {
     margin-left: -250px;
     padding-top: 5px;
     overflow: hidden;
-    background-color:#fff;
+    background-color: #fff;
     font-weight: 400;
-    color: #47484A; /*sidebar font color */
+    color: #47484a; /*sidebar font color */
     opacity: 0.9;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    -webkit-box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77); 
-    box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77);
-    display: flex;/* flex properties */
+    -webkit-box-shadow: 7px 0px 11px -11px rgba(0, 0, 0, 0.77);
+    box-shadow: 7px 0px 11px -11px rgba(0, 0, 0, 0.77);
+    display: flex; /* flex properties */
     justify-content: space-between;
     flex-direction: column;
 }
 
-#wrapper.toggled #sidebar-wrapper{
+#wrapper.toggled #sidebar-wrapper {
     width: 250px;
-
 }
 
-#page-content-wrapper{
+#page-content-wrapper {
     width: 100%;
     position: absolute;
-
 }
 
-#wrapper.toggled #page-content-wrapper{
+#wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
-
 }
 
-  /* Admin pannel wrapper End*/
-
-
-  
-
+/* Admin pannel wrapper End*/
 
 @keyframes App-logo-spin {
-
     from {
         transform: rotate(0deg);
     }
