@@ -21,11 +21,11 @@ import WishListPage from './components/wishlist/wishlistpage';
 import setAxiosToken from './axiosutils/setAxiosToken';
 import Checkout from './components/checkout/checkout.component';
 import OrdersPage from './components/orders-page/orders.component';
-
 import AdminPannel from './Common/admin-pannel/admin-pannel';
-
 import AdminWrapper from './Common/admin-pannel/wrapper/wrapper';
 import NewManager from './admin/pages/add-manager';
+import ManagerAuth from './manager/pages/manager-auth';
+import UpdatePassword from './manager/pages/update-password';
 
 function App() {
     const [token, setToken] = useState(false);
@@ -148,6 +148,46 @@ function App() {
                 </AdminWrapper>
             </React.Fragment>
         );
+    }else if(token && role==='manager'){
+      routes = (
+        <React.Fragment>
+            <AdminWrapper>
+                <Route path='/'>
+                    <AdminPannel></AdminPannel>
+                </Route>
+                {console.log('Manager...')}
+
+                <Switch>
+                    <Route path='/' exact>
+                        <Categories />
+                    </Route>
+                    <Route path='/password/new' exact>
+                        <UpdatePassword></UpdatePassword>
+                    </Route>
+                    <Route path='/users' exact>
+                        <Users />
+                    </Route>
+                    <Route path='/new-category' exact>
+                        <NewCategory />
+                    </Route>
+                    <Route path='/new-product' exact>
+                        <NewProduct />
+                    </Route>
+                    <Route exact path='/product/:id'>
+                        <Product />
+                    </Route>
+                    <Route exact path='/cat/:id'>
+                        <ProductsByCat />
+                    </Route>
+                    <Route exact path='/cart'>
+                        <Cart />
+                    </Route>
+
+                    <Redirect to='/' />
+                </Switch>
+            </AdminWrapper>
+        </React.Fragment>
+    );
     } else if (token && role === 'user') {
         routes = (
             <React.Fragment>
@@ -155,11 +195,11 @@ function App() {
                 <Route path='/'>
                     <MainNavigation />
                 </Route>
+                <main>
                 <Switch>
                     <Route path='/' exact>
                         <Categories />
                     </Route>
-
                     <Route path='/users' exact>
                         <Users />
                     </Route>
@@ -186,10 +226,12 @@ function App() {
                     </Route>
                     <Redirect to='/' />
                 </Switch>
+                </main>
             </React.Fragment>
         );
     } else if (token) {
         routes = (
+          <main>
             <Switch>
                 {console.log('everyone who have a token...')}
                 <Route path='/'>
@@ -208,11 +250,12 @@ function App() {
                     <ProductsByCat />
                 </Route>
 
-                <Route path='/auth'>
+                <Route path='/auth-user'>
                     <Auth />
                 </Route>
-                <Redirect to='/auth' />
+                <Redirect to='/auth-user' />
             </Switch>
+          </main>
         );
     } else {
         routes = (
@@ -221,6 +264,7 @@ function App() {
                 <Route path='/'>
                     <MainNavigation />
                 </Route>
+                <main>
                 <Switch>
                     <Route path='/users' exact>
                         <Users />
@@ -240,15 +284,19 @@ function App() {
                     <Route exact path='/cart'>
                         <Cart />
                     </Route>
-                    <Route path='/auth'>
+                    <Route exact path='/auth'>
                         {/* Admin logins */}
                         <Auth />
                     </Route>
-                    <Route path='/auth-user'>
+                    <Route exact path='/auth-user'>
                         <UserAuth></UserAuth>
+                    </Route>
+                    <Route exact path='/auth-manager'>
+                        <ManagerAuth></ManagerAuth>
                     </Route>
                     <Redirect to='/auth-user' />
                 </Switch>
+                </main>
             </React.Fragment>
         );
     }
