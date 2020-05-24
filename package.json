@@ -51,5 +51,5 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "https://quiet-hollows-79620.herokuapp.com/"
+    "proxy": "http://localhost:9000"
 }
