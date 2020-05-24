@@ -1,57 +1,88 @@
 import axios from 'axios';
 
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, GET_WISHLIST, GET_WISHLIST_DETAILS } from './types';
+import {
+    GET_PRODUCT,
+    GET_PRODUCTS,
+    PRODUCT_ERROR,
+    CLEAR_PRODUCTS,
+    CLEAR_PRODUCT,
+    SET_RATE
+} from './types';
 
 const config = {
-	headers: {
-		'Content-Type': 'application/json'
-	}
+    headers: {
+        'Content-Type': 'application/json'
+    }
 };
 
-export const addToWishlist = (product) => async (dispatch) => {
-	try {
-		const p = { product };
-		dispatch({
-			type: ADD_TO_WISHLIST,
-			payload: p
-		});
-		await axios.post('https://quiet-hollows-79620.herokuapp.com/api/wishlist', p, config);
-	} catch (err) {}
+//GET PRODUCTS BY CATEGORY
+export const getProducts = (catId) => async (dispatch) => {
+    dispatch({
+        type: CLEAR_PRODUCTS
+    });
+    try {
+        const res = await axios.get(
+            `https://quiet-hollows-79620.herokuapp.com/api/product/category/${catId}`
+        );
+        dispatch({
+            type: GET_PRODUCTS,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: PRODUCT_ERROR,
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status
+            }
+        });
+    }
 };
 
-export const removeFromWishList = (product) => async (dispatch) => {
-	try {
-		const p = { product };
-		dispatch({
-			type: REMOVE_FROM_WISHLIST,
-			payload: p
-		});
-		await axios.post('https://quiet-hollows-79620.herokuapp.com/api/wishlist/removeitem', p, config);
-	} catch (err) {}
+export const getProduct = (prodId) => async (dispatch) => {
+    dispatch({
+        type: CLEAR_PRODUCT
+    });
+    try {
+        const res = await axios.get(
+            `https://quiet-hollows-79620.herokuapp.com/api/product/${prodId}`
+        );
+        dispatch({
+            type: GET_PRODUCT,
+            payload: res.data.product
+        });
+    } catch (err) {
+        dispatch({
+            type: PRODUCT_ERROR,
+            payload: { msg: err.response.statusText }
+        });
+    }
 };
 
-export const getWishlist = () => async (dispatch) => {
-	try {
-		const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/wishlist/get', null, config);
-
-		dispatch({
-			type: GET_WISHLIST,
-			payload: res.data
-		});
-	} catch (err) {
-		console.log(err);
-	}
+export const setRate = (rate) => (dispatch) => {
+    console.log(rate);
+    dispatch({
+        type: SET_RATE,
+        payload: rate
+    });
 };
 
-export const getWishlistDetails = () => async (dispatch) => {
-	try {
-		const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/wishlist/getitems', null, config);
+export const addReview = (prodId, rate, comment) => async (dispatch) => {
+    try {
+        const body = {};
+        body.rate = rate;
+        body.comment = comment;
 
-		dispatch({
-			type: GET_WISHLIST_DETAILS,
-			payload: res.data
-		});
-	} catch (err) {
-		console.log(err);
-	}
+        const res = await axios.patch(
+            `https://quiet-hollows-79620.herokuapp.com/api/product/addreview/${prodId}`,
+            body,
+            config
+        );
+        dispatch({
+            type: GET_PRODUCT,
+            payload: res.data.product
+        });
+    } catch (err) {
+        console.log(err.response.statusText);
+    }
 };
