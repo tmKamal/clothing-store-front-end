@@ -10,7 +10,7 @@ const SideBar = (props) => {
       </div>
       <div className="first-list-item">
         <ul className="navigation_section list-container">
-          <NavLink to="/users" exact>
+          {((auth.role==='admin')||(auth.role==='manager'))&&<NavLink to="/users" exact>
             <li className="navigation_item">
               <div className="row">
                 <div className="col-2 icon-containerSidebar">
@@ -19,9 +19,9 @@ const SideBar = (props) => {
                 <div className="col-10 sidebarText">ALL USERS</div>
               </div>
             </li>
-          </NavLink>
+          </NavLink>}
 
-          <NavLink to="/new-product" exact>
+          {((auth.role==='admin')||(auth.role==='manager'))&&<NavLink to="/new-product" exact>
             <li className="navigation_item">
               <div className="row">
                 <div className="col-2 icon-containerSidebar">
@@ -30,8 +30,8 @@ const SideBar = (props) => {
                 <div className="col-10 sidebarText">NEW PRODUCT</div>
               </div>
             </li>
-          </NavLink>
-          <NavLink to="/new-category" exact>
+          </NavLink>}
+          {((auth.role==='admin')||(auth.role==='manager'))&&<NavLink to="/new-category" exact>
             <li className="navigation_item">
               <div className="row">
                 <div className="col-2 icon-containerSidebar">
@@ -40,8 +40,8 @@ const SideBar = (props) => {
                 <div className="col-10 sidebarText">NEW CATEGORY</div>
               </div>
             </li>
-          </NavLink>
-          <NavLink to="/new-manager" exact>
+          </NavLink>}
+          {auth.role==='admin'&&<NavLink to="/new-manager" exact>
             <li className="navigation_item">
               <div className="row">
                 <div className="col-2 icon-containerSidebar">
@@ -50,15 +50,19 @@ const SideBar = (props) => {
                 <div className="col-10 sidebarText">ADD MANAGER</div>
               </div>
             </li>
-          </NavLink>
+          </NavLink>}
+
+          {auth.role==='manager'&&<NavLink to="/password/new" exact>
+
           <li className="navigation_item">
             <div className="row">
               <div className="col-2 icon-containerSidebar">
                 <i className="material-icons crsidebarIcon">trending_up</i>
               </div>
-              <div className="col-10 sidebarText">COMPLETED</div>
+              <div className="col-10 sidebarText">CHANGE PASSWORD</div>
             </div>
           </li>
+          </NavLink>}
         </ul>
       </div>
       <div className="last-list-item">
