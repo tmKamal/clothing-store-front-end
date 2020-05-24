@@ -235,6 +235,7 @@ Main Content
   padding-left: 10px;
   line-height: 3.4;
   color: #8a8d94;
+  cursor:pointer;
 }
 
 .material-icons.crMenu {
@@ -303,6 +304,11 @@ Main Content
   list-style: none;
   line-height: 3;
   display: block;
+}
+
+.popup-user ul li:hover {
+  font-weight: bold;
+  color: #111;
 }
 
 /*END-Navigation*/
