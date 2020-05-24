@@ -108,7 +108,7 @@ export const placeOrder = (prods, address, payment) => async (dispatch) => {
         });
 
         if (products.length > 0) {
-            await axios.post('api/cart/clearcart', null, config);
+            await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/clearcart', null, config);
             console.log('clear');
             dispatch({
                 type: CLEAR_CART
