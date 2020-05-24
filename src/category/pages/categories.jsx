@@ -13,7 +13,7 @@ const Categories = () => {
     const fetchCategories = async () => {// this method is only to use the async code. we can't use async directly on the useEffect hook. useEffect is not good for promisses.
       
       try {
-        const responseData = await sendRequest("http://localhost:9000/api/categories/");
+        const responseData = await sendRequest("https://quiet-hollows-79620.herokuapp.com/api/categories/");
         
         
         setLoadedCategories(responseData.categories);//this is the key of the JSON response - view the backend code for more.
