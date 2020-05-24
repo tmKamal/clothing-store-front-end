@@ -144,6 +144,9 @@ function App() {
             <Route exact path="/product/:id">
               <Product />
             </Route>
+            <Route path="/all-products" exact>
+              <AllProducts></AllProducts>
+            </Route>
             <Route exact path="/cat/:id">
               <ProductsByCat />
             </Route>
@@ -266,10 +269,10 @@ function App() {
             <ProductsByCat />
           </Route>
 
-          <Route path="/auth-user">
-            <Auth />
-          </Route>
-          <Redirect to="/auth-user" />
+          <Route exact path="/auth-user">
+              <UserAuth></UserAuth>
+            </Route>
+          <Redirect to="/" />
         </Switch>
       </main>
     );
@@ -309,7 +312,7 @@ function App() {
             <Route exact path="/auth-manager">
               <ManagerAuth></ManagerAuth>
             </Route>
-            <Redirect to="/auth-user" />
+            <Redirect to="/" />
           </Switch>
         </main>
       </React.Fragment>

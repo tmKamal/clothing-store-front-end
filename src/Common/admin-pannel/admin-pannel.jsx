@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import InfoCard from "./info-card/info-card";
 import SideBar from "./admin-sidebar/admin-sidebar";
 import AdminNavigation from "./admin-navigation/admin-navigation";
 import "./admin-pannel.scss";

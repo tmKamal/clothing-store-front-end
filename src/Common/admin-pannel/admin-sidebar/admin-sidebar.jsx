@@ -51,7 +51,7 @@ const SideBar = (props) => {
               </div>
             </li>
           </NavLink>}
-          {auth.role==='manager'&&<NavLink to="/all-products" exact>
+          {((auth.role==='admin')||(auth.role==='manager'))&&<NavLink to="/all-products" exact>
             <li className="navigation_item">
               <div className="row">
                 <div className="col-2 icon-containerSidebar">
