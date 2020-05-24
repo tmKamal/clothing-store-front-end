@@ -3,11 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { AuthContext } from '../../Common/context/auth-context';
 import { FaCcVisa } from 'react-icons/fa';
 import { addItem } from '../../actions/cart';
 import { getProduct } from '../../actions/products';
 import WishListIcon from '../wishlist-icon/wishlist-icon';
-import { AuthContext } from '../../Common/context/auth-context';
 import CustomButton from '../custom-button/custom-button.component';
 import { checkout } from '../../actions/order';
 import StarRating from '../star-rating/star-rating.component';
@@ -241,16 +241,16 @@ const Product = ({
                         &#9932;
                     </div>
 
+                    <CustomButton>
+                        <FaCcVisa className='facard' size={30} /> CARD
+                    </CustomButton>
+
                     <Link
                         to='/checkout'
                         onClick={() => checkout(product, qty, size, total)}
                     >
-                        <CustomButton>
-                            <FaCcVisa className='facard' size={30} /> CARD
-                        </CustomButton>
+                        <CustomButton>CASH ON DELIVEY</CustomButton>
                     </Link>
-
-                    <CustomButton>CASH ON DELIVEY</CustomButton>
                 </Modal>
 
                 {/* {!productLoading && product.rating.length ? (
