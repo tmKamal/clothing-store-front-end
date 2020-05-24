@@ -193,9 +193,12 @@ const Product = ({
                             <div className='wrapper'>
                                 <div className='addtocart-button'>
                                     <CustomButton
-                                        onClick={() =>
-                                            addItem(product, size, qty)
-                                        }
+                                        onClick={() => {
+                                            auth.isLoggedIn
+                                                ? addItem(product, size, qty)
+                                                : (window.location.href =
+                                                      '/auth');
+                                        }}
                                     >
                                         Add to cart
                                     </CustomButton>
