@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import AddReview from '../../add-review/add-review';
 import './order-item.style.scss';
-import PropTypes from 'prop-types';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -17,7 +17,11 @@ const OrderItem = ({ product, orderId }) => {
     const [modalIsOpen, setIsOpen] = useState(false);
     return (
         <div className='ordered-product'>
-            <img src={product.product.image} className='ordered-product-img' />
+            <img
+                src={product.product.image}
+                className='ordered-product-img'
+                alt='prodcut'
+            />
             <br />
             <span className='ordered-product-name'>
                 {' '}
@@ -47,7 +51,5 @@ const OrderItem = ({ product, orderId }) => {
         </div>
     );
 };
-
-OrderItem.propTypes = {};
 
 export default OrderItem;

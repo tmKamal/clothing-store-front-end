@@ -1,14 +1,12 @@
-import React, { useContext, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { placeOrder } from '../../actions/order';
 import { connect } from 'react-redux';
-import { AuthContext } from '../../Common/context/auth-context';
 import { FaUser, FaAddressCard, FaMobileAlt } from 'react-icons/fa';
 import './checkout.style.scss';
 
 const Checkout = ({ checkingItems, loading, placeOrder, processing }) => {
-    const auth = useContext(AuthContext);
     const [formData, setFormData] = useState({
         name: '',
         address1: '',
