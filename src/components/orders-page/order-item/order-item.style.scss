@@ -16,6 +16,7 @@ $break-large: 1200px;
     }
     .ordered-product-img {
         height: 10rem;
+        max-width: 9rem;
     }
     .ordered-product-name {
         font-size: 1rem;
@@ -35,7 +36,7 @@ $break-large: 1200px;
     }
 
     .reviewed {
-        background-color: #2fd405;
-        color: black;
+        background-color: #009e31;
+        color: white;
     }
 }

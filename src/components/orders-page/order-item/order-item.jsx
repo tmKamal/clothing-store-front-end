@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import { FaCheck } from 'react-icons/fa';
 import AddReview from '../../add-review/add-review';
 import './order-item.style.scss';
 
@@ -17,11 +19,13 @@ const OrderItem = ({ product, orderId }) => {
     const [modalIsOpen, setIsOpen] = useState(false);
     return (
         <div className='ordered-product'>
-            <img
-                src={product.product.image}
-                className='ordered-product-img'
-                alt='prodcut'
-            />
+            <Link to={`product/${product.product._id}`}>
+                <img
+                    src={product.product.image}
+                    className='ordered-product-img'
+                    alt='prodcut'
+                />
+            </Link>
             <br />
             <span className='ordered-product-name'>
                 {' '}
@@ -33,7 +37,13 @@ const OrderItem = ({ product, orderId }) => {
                 onClick={() => setIsOpen(!modalIsOpen)}
                 disabled={product.rated ? true : false}
             >
-                {product.rated ? 'Reviewed' : 'Review'}
+                {product.rated ? (
+                    <Fragment>
+                        <FaCheck color='white' /> &nbsp; Reviewed
+                    </Fragment>
+                ) : (
+                    'Review'
+                )}
             </button>
             <Modal
                 isOpen={modalIsOpen}

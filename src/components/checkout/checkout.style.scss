@@ -17,10 +17,11 @@ $break-large: 1200px;
         left: 7%;
         align-items: center;
         right: 7%;
-        color: white;
+        color: white !important;
 
         .processing-text {
-            padding: 12%;
+            color: white !important;
+            padding: 2rem;
         }
     }
 
