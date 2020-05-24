@@ -9,7 +9,6 @@ import { getProduct } from '../../actions/products';
 import WishListIcon from '../wishlist-icon/wishlist-icon';
 import { AuthContext } from '../../Common/context/auth-context';
 import CustomButton from '../custom-button/custom-button.component';
-import Checkout from '../checkout/checkout.component';
 import { checkout } from '../../actions/order';
 import StarRating from '../star-rating/star-rating.component';
 import './product.styles.scss';
@@ -197,7 +196,7 @@ const Product = ({
                                             auth.isLoggedIn
                                                 ? addItem(product, size, qty)
                                                 : (window.location.href =
-                                                      '/auth');
+                                                      '/auth-user');
                                         }}
                                     >
                                         Add to cart
@@ -208,7 +207,7 @@ const Product = ({
                                             auth.isLoggedIn
                                                 ? setIsOpen(!modalIsOpen)
                                                 : (window.location.href =
-                                                      '/auth');
+                                                      '/auth-user');
                                         }}
                                     >
                                         Buy now

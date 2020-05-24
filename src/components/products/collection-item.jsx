@@ -54,7 +54,7 @@ const CollectionItem = ({ product, addItem }) => {
                 onClick={() => {
                     auth.isLoggedIn
                         ? addItem(product)
-                        : (window.location.href = '/auth');
+                        : (window.location.href = '/auth-user');
                 }}
                 inverted
             >
