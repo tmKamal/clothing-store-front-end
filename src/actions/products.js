@@ -21,7 +21,7 @@ export const getProducts = (catId) => async (dispatch) => {
     type: CLEAR_PRODUCTS,
   });
   try {
-    const res = await axios.get(`/api/product/category/${catId}`);
+    const res = await axios.get(`http://localhost:9000/api/product/category/${catId}`);
     dispatch({
       type: GET_PRODUCTS,
       payload: res.data,
@@ -39,7 +39,7 @@ export const getProduct = (prodId) => async (dispatch) => {
     type: CLEAR_PRODUCT,
   });
   try {
-    const res = await axios.get(`/api/product/${prodId}`);
+    const res = await axios.get(`http://localhost:9000/api/product/${prodId}`);
     dispatch({
       type: GET_PRODUCT,
       payload: res.data.product,
@@ -67,7 +67,7 @@ export const addReview = (prodId, rate, comment) => async (dispatch) => {
     body.comment = comment;
 
     const res = await axios.patch(
-      `/api/product/addreview/${prodId}`,
+      `http://localhost:9000/api/product/addreview/${prodId}`,
       body,
       config
     );

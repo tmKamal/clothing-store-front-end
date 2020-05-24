@@ -15,7 +15,7 @@ export const addToWishlist = (product) => async (dispatch) => {
 			type: ADD_TO_WISHLIST,
 			payload: p
 		});
-		await axios.post('/api/wishlist', p, config);
+		await axios.post('http://localhost:9000/api/wishlist', p, config);
 	} catch (err) {}
 };
 
@@ -26,13 +26,13 @@ export const removeFromWishList = (product) => async (dispatch) => {
 			type: REMOVE_FROM_WISHLIST,
 			payload: p
 		});
-		await axios.post('/api/wishlist/removeitem', p, config);
+		await axios.post('http://localhost:9000/api/wishlist/removeitem', p, config);
 	} catch (err) {}
 };
 
 export const getWishlist = () => async (dispatch) => {
 	try {
-		const res = await axios.post('/api/wishlist/get', null, config);
+		const res = await axios.post('http://localhost:9000/api/wishlist/get', null, config);
 
 		dispatch({
 			type: GET_WISHLIST,
@@ -45,7 +45,7 @@ export const getWishlist = () => async (dispatch) => {
 
 export const getWishlistDetails = () => async (dispatch) => {
 	try {
-		const res = await axios.post('/api/wishlist/getitems', null, config);
+		const res = await axios.post('http://localhost:9000/api/wishlist/getitems', null, config);
 
 		dispatch({
 			type: GET_WISHLIST_DETAILS,
