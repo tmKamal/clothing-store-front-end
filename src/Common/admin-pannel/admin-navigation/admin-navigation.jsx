@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/auth-context";
 import AdminBackDrop from "../admin-backdrop/admin-backdrop";
 const AdminNavigation = (props) => {
+  const auth = useContext(AuthContext);
   const [userPopup, setUserPopup] = useState(false);
   const popupOpener = () => {
     setUserPopup(!userPopup);
@@ -21,33 +23,21 @@ const AdminNavigation = (props) => {
               <i className="material-icons crMenu">menu</i>
             </button>
             <ul>
-              <li>
-                <a href="contactus.html">
-                  <i className="material-icons top-nav-icon">search</i>
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i className="material-icons top-nav-icon">
-                    notifications_none
-                  </i>
-                </a>
-              </li>
               <li className="drop-user" onClick={popupOpener}>
-                <a href="#">
+                
                   User
                   <i className="material-icons top-nav-icon">account_circle</i>
-                </a>
+                
 
                 {userPopup && (
                   <div className="popup-user ">
                     <ul>
-                      <li>
-                        <a href="#">Profile</a>
-                      </li>
-                      <li>
-                        <a href="#">Sign-Out</a>
-                      </li>
+                    <NavLink to="/">
+                        <li>Home</li>
+                      </NavLink>
+                      <NavLink to="/">
+                        <li onClick={auth.logout}>Sign-Out</li>
+                      </NavLink>
                     </ul>
                   </div>
                 )}
