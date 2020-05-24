@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
     CHECKOUT,
     CLEAR_CHECKOUT,
@@ -18,6 +19,7 @@ export const checkout = (products, qty, size, total) => async (dispatch) => {
         type: CLEAR_CHECKOUT
     });
     try {
+        console.log('f');
         if (products.length > 0) {
             const items = {};
             products.map(
@@ -97,7 +99,11 @@ export const placeOrder = (prods, address, payment) => async (dispatch) => {
             payment: payment
         };
 
-        const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/order/', body, config);
+        const res = await axios.post(
+            'https://quiet-hollows-79620.herokuapp.com/api/order/',
+            body,
+            config
+        );
         dispatch({
             type: ORDER_PROCESSING,
             payload: 2
@@ -108,7 +114,11 @@ export const placeOrder = (prods, address, payment) => async (dispatch) => {
         });
 
         if (products.length > 0) {
-            await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/clearcart', null, config);
+            await axios.post(
+                'https://quiet-hollows-79620.herokuapp.com/api/cart/clearcart',
+                null,
+                config
+            );
             console.log('clear');
             dispatch({
                 type: CLEAR_CART
@@ -131,7 +141,9 @@ export const placeOrder = (prods, address, payment) => async (dispatch) => {
 
 export const getOrderedItems = () => async (dispatch) => {
     try {
-        const res = await axios.get('https://quiet-hollows-79620.herokuapp.com/api/order/items');
+        const res = await axios.get(
+            'https://quiet-hollows-79620.herokuapp.com/api/order/items'
+        );
         dispatch({
             type: SET_ORDER_ITEMS,
             payload: res.data.orders
@@ -145,7 +157,11 @@ export const setOrderComplete = (orderId) => async (dispatch) => {
     try {
         const body = {};
         body.orderId = orderId;
-        const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/order/complete/', body, config);
+        const res = await axios.post(
+            'https://quiet-hollows-79620.herokuapp.com/api/order/complete/',
+            body,
+            config
+        );
         dispatch({
             type: SET_ORDER_ITEMS,
             payload: res.data.orders
@@ -161,7 +177,11 @@ export const itemReviewd = (pid, oid) => async (dispatch) => {
         body.orderId = oid;
         body.product = pid;
 
-        const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/order/rated', body, config);
+        const res = await axios.post(
+            'https://quiet-hollows-79620.herokuapp.com/api/order/rated',
+            body,
+            config
+        );
         dispatch({
             type: SET_ORDER_ITEMS,
             payload: res.data.orders
