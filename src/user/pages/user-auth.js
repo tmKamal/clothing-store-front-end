@@ -70,7 +70,7 @@ const UserAuth = () => {
            so we have to handle them manually.
         */
        
-        const response = await fetch("http://localhost:9000/api/user/login", {
+        const response = await fetch("https://quiet-hollows-79620.herokuapp.com/api/user/login", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ const UserAuth = () => {
            because they are also a valid response.
            so we have to handle them manually.
         */
-        const response = await fetch("http://localhost:9000/api/user/signup", {
+        const response = await fetch("https://quiet-hollows-79620.herokuapp.com/api/user/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
