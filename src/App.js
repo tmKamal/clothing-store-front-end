@@ -68,7 +68,6 @@ function App() {
         localStorage.removeItem('userData');
         localStorage.clear();
         console.log('auto logged out');
-        setAxiosToken(null);
     }, []); //we have use callback here because we do not need to recreate(rerender) this element to the unwanted changes of the states and to prevent from infinite loops.
 
     //Managing token expiration

@@ -41,7 +41,7 @@ export const loadCartCheckout = () => async (dispatch) => {
             payload: res.data
         });
     } catch (err) {
-        window.location.href = '/auth';
+       
     }
 };
 
@@ -60,7 +60,7 @@ export const addItem = (item, size = 'm', qty = 1) => async (dispatch) => {
             payload: newItem
         });
     } catch (err) {
-        window.location.href = '/auth';
+        
     }
 };
 

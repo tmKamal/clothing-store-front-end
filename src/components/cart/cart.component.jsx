@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import LoadingSpinner from '../../Common/components/UIElements/loading-spinner/loading-spinner';
 import { loadCartCheckout } from '../../actions/cart';
 import { selectCartTotal } from '../../reducers/cart.selectors';
+import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item';
 import { checkout } from '../../actions/order';
 import { AuthContext } from '../../Common/context/auth-context';
@@ -73,15 +74,23 @@ const Cart = ({
                                 <span>TOTAL : LKR {total}</span>
                             </div>
                             {/* <StripeCheckoutButton price={total}/> */}
-                            <Link
-                                to='/checkout'
-                                onClick={() =>
-                                    checkout(checkoutItems, null, null, total)
-                                }
-                            >
-                                {' '}
-                                Buy now
-                            </Link>
+
+                            
+                                <Link
+                                    to='/checkout'
+                                    onClick={() =>
+                                        checkout(
+                                            checkoutItems,
+                                            null,
+                                            null,
+                                            total
+                                        )
+                                    }
+                                >
+                                    {' '}<CustomButton>Buy now</CustomButton>
+                                    
+                                </Link>
+                            
                         </Fragment>
                     )}
                 </Fragment>
