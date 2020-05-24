@@ -14,7 +14,7 @@ const AdminPannel = (props) => {
     <React.Fragment>
       <SideBar></SideBar>
       <AdminNavigation tog={sidebarOpener}></AdminNavigation>
-      <div id="page-content-wrapper">
+      {/* <div id="page-content-wrapper">
         <div className="container-fluid">
           <div className="page-content-body-wrapper">
             <div className="row info-cards-wrapper">
@@ -25,7 +25,7 @@ const AdminPannel = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       
     </React.Fragment>
