@@ -128,7 +128,7 @@ const Checkout = ({ checkingItems, loading, placeOrder, processing }) => {
                             <span className='price'>lkr</span>
                         </h4>
                         {loading ? (
-                            (window.location.href = '/')
+                            (window.location.href = '/orders')
                         ) : checkingItems.products.length > 0 ? (
                             checkingItems.products.map((product) => (
                                 <p
