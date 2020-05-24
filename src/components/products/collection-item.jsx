@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { AuthContext } from '../../Common/context/auth-context';
 import { addItem, loadCart } from '../../actions/cart';
 import StarRating from '../star-rating/star-rating.component';
 import WishListIcon from '../wishlist-icon/wishlist-icon';
@@ -9,7 +10,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ product, addItem }) => {
-
+    const auth = useContext(AuthContext);
     const { name, price, image, discount } = product;
     let all = 0;
 
@@ -40,7 +41,6 @@ const CollectionItem = ({ product, addItem }) => {
             <div className='collection-footer'>
                 <span className='name'>{name}</span>
 
-
                 <span className={`price ${discount ? 'cut' : ''}`}>
                     $ &nbsp;{price}
                 </span>
@@ -50,7 +50,14 @@ const CollectionItem = ({ product, addItem }) => {
                     ''
                 )}
             </div>
-            <CustomButton onClick={() => addItem(product)} inverted>
+            <CustomButton
+                onClick={() => {
+                    auth.isLoggedIn
+                        ? addItem(product)
+                        : (window.location.href = '/auth');
+                }}
+                inverted
+            >
                 Add to cart{' '}
             </CustomButton>
         </div>

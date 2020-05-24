@@ -102,7 +102,7 @@ const Product = ({
                                     ? 'No reviews yet'
                                     : `${all} rating with ${product.rating.length} reviews`}{' '}
                             </span>
-                            <hr />
+                            <br />
                             <span className='availableqty'>
                                 {product.qty <= 30 ? 'Only ' : ''}
                                 {product.qty} - Items available{' '}
@@ -130,7 +130,7 @@ const Product = ({
                                         : product.price}
                                 </span>
                             </span>
-                            <hr />
+
                             <span className='size'>
                                 <span>Size</span>
 
@@ -175,7 +175,7 @@ const Product = ({
                                     XXL
                                 </span>
                             </span>
-                            <hr />
+
                             <span className='qty'>
                                 Quantity{' '}
                                 <input
@@ -193,9 +193,12 @@ const Product = ({
                             <div className='wrapper'>
                                 <div className='addtocart-button'>
                                     <CustomButton
-                                        onClick={() =>
-                                            addItem(product, size, qty)
-                                        }
+                                        onClick={() => {
+                                            auth.isLoggedIn
+                                                ? addItem(product, size, qty)
+                                                : (window.location.href =
+                                                      '/auth');
+                                        }}
                                     >
                                         Add to cart
                                     </CustomButton>
@@ -232,7 +235,7 @@ const Product = ({
                 >
                     &#9932;
                 </div>
-                <br />
+
                 <Link
                     to='/checkout'
                     onClick={() => checkout(product, qty, size, total)}
@@ -241,7 +244,7 @@ const Product = ({
                         <FaCcVisa className='facard' size={30} /> CARD
                     </CustomButton>
                 </Link>
-                <br />
+
                 <CustomButton>CASH ON DELIVEY</CustomButton>
             </Modal>
         </Fragment>
