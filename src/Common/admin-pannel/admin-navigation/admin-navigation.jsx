@@ -7,7 +7,7 @@ const AdminNavigation = (props) => {
   const [userPopup, setUserPopup] = useState(false);
   const popupOpener = () => {
     setUserPopup(!userPopup);
-    console.log("cant be happnes");
+    
   };
   const popupCloser = () => {
     console.log("clicked");
@@ -25,7 +25,7 @@ const AdminNavigation = (props) => {
             <ul>
               <li className="drop-user" onClick={popupOpener}>
                 
-                  User
+                  {auth.role}
                   <i className="material-icons top-nav-icon">account_circle</i>
                 
 

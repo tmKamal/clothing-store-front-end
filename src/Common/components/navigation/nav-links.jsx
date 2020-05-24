@@ -9,23 +9,11 @@ const NavLinks = () => {
 
     return (
         <ul className='nav-links'>
-            <li>
-                <NavLink to='/users' exact>
-                    ALL USERS
-                </NavLink>
-            </li>
+            
 
-            {auth.isLoggedIn && (
-                <li>
-                    <NavLink to='/new-category'>Add Category</NavLink>
-                </li>
-            )}
+            
 
-            {auth.isLoggedIn && (
-                <li>
-                    <NavLink to='/new-product'>Add Products</NavLink>
-                </li>
-            )}
+            
             {auth.isLoggedIn && (
                 <li>
                     <NavLink to='/orders'>My Orders</NavLink>

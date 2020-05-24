@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Input from '../../Common/components/form-elements/input/input';
 import './manager.scss';
-import { VALIDATOR_EMAIL } from '../../Common/util/validators/validators';
+import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH } from '../../Common/util/validators/validators';
 import { useForm } from '../../Common/custom-hooks/form-hook';
 import Button from '../../Common/components/form-elements/button';
 import Card from '../../Common/components/UIElements/card/card';
@@ -98,7 +98,8 @@ const ManagerAuth = () => {
 						element='input'
 						type='password'
 						label='Password'
-						
+						errorText='Password shoud consists 4 more characters.'
+						validators={[ VALIDATOR_MINLENGTH(4) ]}
 					/>
 					<Button type='submit' disabled={!formState.isValid}>
 						{'LogIn'}
