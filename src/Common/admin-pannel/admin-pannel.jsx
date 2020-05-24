@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import InfoCard from "./info-card/info-card";
 import SideBar from "./admin-sidebar/admin-sidebar";
 import AdminNavigation from "./admin-navigation/admin-navigation";
