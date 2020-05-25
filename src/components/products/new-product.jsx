@@ -86,7 +86,10 @@ const NewProduct = () => {
                 'https://quiet-hollows-79620.herokuapp.com/api/product/',
                 'POST',
                 formData,
-                { Authorization: 'Bearer ' + auth.token }
+                {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: 'Bearer ' + auth.token
+                }
             );
 
             history.push('/'); //redirecting user to main page

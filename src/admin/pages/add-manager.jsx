@@ -37,7 +37,7 @@ const NewManager = () => {
 
     const managerSubmitHandler = async (event) => {
         event.preventDefault();
-        console.log(formState.inputs);
+        
         /* 
     In here, we have to pass a image too, but images has a binary data type
     so we can't pass binary data using JSON.
@@ -57,7 +57,7 @@ const NewManager = () => {
                     Authorization: 'Bearer ' + auth.token
                 }
             );
-            console.log(formState.inputs);
+            
             history.push('/');
         } catch (err) {}
     };
@@ -91,7 +91,7 @@ const NewManager = () => {
                     id='password'
                     element='input'
                     type='password'
-                    label='Name'
+                    label='Password'
                     errorText='password should not be empty!!'
                     validators={[VALIDATOR_REQUIRE()]}
                 ></Input>
