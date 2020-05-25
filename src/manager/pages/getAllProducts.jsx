@@ -60,7 +60,7 @@ const AllProducts = () => {
                                     </th>
                                     <td style={{ textAlign: 'center' }}>
                                         <img
-                                            src={prod.image}
+                                            src={`https://quiet-hollows-79620.herokuapp.com/${prod.image}`}
                                             alt={prod.name}
                                             width='50'
                                             height='auto'

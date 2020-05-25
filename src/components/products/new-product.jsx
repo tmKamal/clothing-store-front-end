@@ -11,6 +11,7 @@ import ErrorModal from '../../Common/components/UIElements/model/error-model';
 import LoadingSpinner from '../../Common/components/UIElements/loading-spinner/loading-spinner';
 import { AuthContext } from '../../Common/context/auth-context';
 import './new-product.scss';
+import axios from 'axios';
 
 const NewProduct = () => {
     const auth = useContext(AuthContext);
@@ -82,15 +83,26 @@ const NewProduct = () => {
             formData.append('qty', formState.inputs.qty.value);
             formData.append('category', selectedCategory);
             formData.append('image', formState.inputs.image.value);
-            await sendRequest(
-                'https://quiet-hollows-79620.herokuapp.com/api/product/',
-                'POST',
-                formData,
-                {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: 'Bearer ' + auth.token
-                }
-            );
+            // await sendRequest(
+            //     'https://quiet-hollows-79620.herokuapp.com/api/product/',
+            //     'POST',
+            //     formData,
+            //     { Authorization: 'Bearer ' + auth.token }
+            // );
+            axios({
+                method: 'POST',
+                url: 'https://quiet-hollows-79620.herokuapp.com/api/product/',
+                data: formData,
+                headers: { 'Content-Type': 'multipart/form-data' }
+            })
+                .then(function (response) {
+                    //handle success
+                    console.log(response);
+                })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
+                });
 
             history.push('/'); //redirecting user to main page
         } catch (err) {}

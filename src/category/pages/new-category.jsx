@@ -11,6 +11,7 @@ import ErrorModal from '../../Common/components/UIElements/model/error-model';
 import LoadingSpinner from '../../Common/components/UIElements/loading-spinner/loading-spinner';
 import { AuthContext } from '../../Common/context/auth-context';
 import './new-category.scss';
+import axios from 'axios';
 
 const NewCategory = () => {
     const auth = useContext(AuthContext);
@@ -45,12 +46,27 @@ const NewCategory = () => {
             const formData = new FormData();
             formData.append('name', formState.inputs.name.value); //fist parameter is the key, we will catch this requst in backend using this key.
             formData.append('image', formState.inputs.image.value);
-            await sendRequest(
-                'https://quiet-hollows-79620.herokuapp.com/api/categories/',
-                'POST',
-                formData,
-                { Authorization: 'Bearer ' + auth.token }
-            );
+            axios({
+                method: 'POST',
+                url:
+                    'https://quiet-hollows-79620.herokuapp.com/api/categories/',
+                data: formData,
+                headers: { 'Content-Type': 'multipart/form-data' }
+            })
+                .then(function (response) {
+                    //handle success
+                    console.log(response);
+                })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
+                });
+            // await sendRequest(
+            //     'https://quiet-hollows-79620.herokuapp.com/api/categories/',
+            //     'POST',
+            //     formData,
+            //     { Authorization: 'Bearer ' + auth.token }
+            // );
             console.log(formState.inputs);
             history.push('/'); //redirecting user to main page
         } catch (err) {}
