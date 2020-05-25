@@ -15,7 +15,7 @@ const Admins = () => {
 
             try {
                 const responseData = await sendRequest(
-                    'https://quiet-hollows-79620.herokuapp.com//api/admin/'
+                    'https://quiet-hollows-79620.herokuapp.com/api/admin/'
                 );
 
                 setLoadedUsers(responseData.admins); //this is the key of the response - view the backend code for more.
