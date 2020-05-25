@@ -21,7 +21,7 @@ const OrderItem = ({ product, orderId }) => {
         <div className='ordered-product'>
             <Link to={`product/${product.product._id}`}>
                 <img
-                    src={product.product.image}
+                    src={`https://quiet-hollows-79620.herokuapp.com/${product.product.image}`}
                     className='ordered-product-img'
                     alt='prodcut'
                 />

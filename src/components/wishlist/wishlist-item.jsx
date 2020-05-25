@@ -18,7 +18,10 @@ const WishListItem = ({ product, removeFromWishList, addItem }) => {
         <Fragment>
             <div className='wishlist-item'>
                 <div className='image-container'>
-                    <img src={image} alt='item' />
+                    <img
+                        src={`https://quiet-hollows-79620.herokuapp.com/${image}`}
+                        alt='item'
+                    />
                 </div>
                 <span className='name'>{name}</span>
                 <div className='addtocart-button'>
