@@ -1,6 +1,6 @@
 # CLOTHING STORE - E Commerce application
 
-**AF ( 3rd year 1 semester project) **
+**AF ( 3rd year 1 semester project)**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
