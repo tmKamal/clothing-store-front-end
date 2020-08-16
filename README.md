@@ -6,11 +6,10 @@
 git clone https://github.com/tmKamal/clothing-store-front-end
 ```
 
-## Available Scripts
-In the project directory, you can run:
+## Get started with the app
+you can run:
 
 ### `npm install`
-install all the npm packages that requires to run the application
 
 ### `npm start`
 
