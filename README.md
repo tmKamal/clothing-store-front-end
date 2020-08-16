@@ -1,8 +1,18 @@
+# CLOTHING STORE - E Commerce application
+
+** AF ( 3rd year 1 semester project) **
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+```
+git clone https://github.com/tmKamal/clothing-store-front-end
+```
 
+## Available Scripts
 In the project directory, you can run:
+
+### `npm install`
+install all the npm packages that requires to run the application
 
 ### `npm start`
 
@@ -12,6 +22,28 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+
+## Screens
+
+**Cart**
+
+![cart](https://i.imgur.com/hLfsj5K.png)
+
+**My Orders**
+![Orders](https://i.imgur.com/ati0GED.png)
+
+**Review product**
+
+![Rating](https://i.imgur.com/zsMmrdu.png)
+
+**Checkout**
+![Checkout](https://i.imgur.com/kZskVCG.png)
+
+**Wishlist**
+![Wishlist](https://i.imgur.com/2RmAeUh.png)
+
+**Product view**
+![Product view](https://i.imgur.com/eogahYJ.png)
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
