@@ -17,7 +17,11 @@ export const addItemToCart = (cartItems, newItem) => {
 
             item.product = newItem.product;
             item.qty = '+1';
-            axios.post('/api/cart/updateqty', item, config);
+            axios.post(
+                'https://quiet-hollows-79620.herokuapp.com/api/cart/updateqty',
+                item,
+                config
+            );
         } catch (err) {
             console.log('Error');
         }
@@ -29,7 +33,11 @@ export const addItemToCart = (cartItems, newItem) => {
     }
 
     try {
-        axios.post('/api/cart', newItem, config);
+        axios.post(
+            'https://quiet-hollows-79620.herokuapp.com/api/cart',
+            newItem,
+            config
+        );
     } catch (err) {
         console.log('error: ' + err);
     }

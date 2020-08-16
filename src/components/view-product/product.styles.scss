@@ -48,6 +48,7 @@ $break-large: 1200px;
             background-position: center;
             height: 28rem;
             border-radius: 20px 20px 0 0;
+            background-size: cover;
 
             @media screen and (max-width: $break-small) {
                 background-size: cover;

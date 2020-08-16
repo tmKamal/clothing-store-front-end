@@ -22,7 +22,10 @@ const CartItem = ({ cartItem, clearItemFromCart, reduceQty, increaseQty }) => {
                 to={`product/${cartItem.product._id}`}
                 className='image-container'
             >
-                <img src={image} alt='item' />
+                <img
+                    src={`https://quiet-hollows-79620.herokuapp.com/${image}`}
+                    alt='item'
+                />
             </Link>
             <span className='name'>{name}</span>
             <span className='quantity'>

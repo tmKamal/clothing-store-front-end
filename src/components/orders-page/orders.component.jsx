@@ -9,7 +9,7 @@ const OrdersPage = ({ props, getOrderedItems, orderedItems, loading }) => {
     if (loading) {
         setTimeout(() => {
             getOrderedItems();
-        }, 2000);
+        }, 1000);
     }
 
     return (

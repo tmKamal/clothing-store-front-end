@@ -19,7 +19,7 @@ export const loadCart = () => async (dispatch) => {
     try {
         const body = {};
 
-        const res = await axios.post('/api/cart/load', body, config);
+        const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/load', body, config);
 
         if (typeof res.data === 'object') {
             dispatch({
@@ -34,7 +34,7 @@ export const loadCartCheckout = () => async (dispatch) => {
     try {
         const body = {};
 
-        const res = await axios.post('/api/cart/loadcheckout', body, config);
+        const res = await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/loadcheckout', body, config);
 
         dispatch({
             type: LOAD_CART_CHECKOUT,
@@ -75,7 +75,7 @@ export const clearItemFromCart = (item) => async (dispatch) => {
         });
 
         //axios part
-        await axios.post('/api/cart/removeitem', newItem, config);
+        await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/removeitem', newItem, config);
     } catch (err) {}
 };
 
@@ -91,7 +91,7 @@ export const reduceQty = (item) => async (dispatch) => {
             payload: newItem
         });
 
-        await axios.post('/api/cart/updateqty', newItem, config);
+        await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/updateqty', newItem, config);
     } catch (err) {}
 };
 
@@ -107,7 +107,7 @@ export const increaseQty = (item) => async (dispatch) => {
             payload: newItem
         });
 
-        await axios.post('/api/cart/updateqty', newItem, config);
+        await axios.post('https://quiet-hollows-79620.herokuapp.com/api/cart/updateqty', newItem, config);
     } catch (err) {}
 };
 

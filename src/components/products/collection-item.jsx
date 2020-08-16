@@ -35,7 +35,7 @@ const CollectionItem = ({ product, addItem }) => {
                 to={`/product/${product._id}`}
                 className='image'
                 style={{
-                    backgroundImage: `url(http://localhost:9000/${image})`
+                    backgroundImage: `url(https://quiet-hollows-79620.herokuapp.com/${image})`
                 }}
             />
             <div className='collection-footer'>

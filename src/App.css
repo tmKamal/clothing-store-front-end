@@ -3,9 +3,7 @@ body {
     color: #000 !important;
     background-color: #ffffff !important;
 }
-#root {
-    margin-top: 5rem;
-}
+
 .App {
     text-align: center;
 }

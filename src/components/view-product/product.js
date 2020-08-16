@@ -78,7 +78,7 @@ const Product = ({
                             <div
                                 className='product-image'
                                 style={{
-                                    backgroundImage: `url(${product.image})`
+                                    backgroundImage: `url(https://quiet-hollows-79620.herokuapp.com/${product.image})`
                                 }}
                             />
                             <div className='product-details'>
