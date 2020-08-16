@@ -2,29 +2,20 @@
 
 **AF ( 3rd year 1 semester project)**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ```
 git clone https://github.com/tmKamal/clothing-store-front-end
 ```
 
-## Available Scripts
-In the project directory, you can run:
+## Getting started
 
-### `npm install`
-install all the npm packages that requires to run the application
+### ⏳ Installation
+run `npm install`
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
+### ▶ Start
+run `npm start`
 
 ## Screens
-
+### Client
 **Cart**
 
 ![cart](https://i.imgur.com/hLfsj5K.png)
@@ -44,6 +35,25 @@ You will also see any lint errors in the console.
 
 **Product view**
 ![Product view](https://i.imgur.com/eogahYJ.png)
+
+### Admin
+
+**View products**
+![Admin products](https://i.imgur.com/YKuOlqs.jpg)
+
+**Add Products**
+![Add product](https://imgur.com/3uqaZQj.jpg)
+
+**Add Category**
+![Add Category](https://imgur.com/ZWwbICZ.jpg)
+
+**Add manager**
+![Add manager](https://imgur.com/Onq2PQY.jpg)
+
+**Change password**
+![Change password](https://imgur.com/QDKyRvS.jpg)
+
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
