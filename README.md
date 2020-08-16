@@ -6,12 +6,13 @@
 git clone https://github.com/tmKamal/clothing-store-front-end
 ```
 
-## Get started with the app
-you can run:
+## Getting started
 
-### `npm install`
+### ⏳ Installation
+run `npm install`
 
-### `npm start`
+### ▶ Start
+run `npm start`
 
 ## Screens
 ### Client
