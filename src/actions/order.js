@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import {
     CHECKOUT,
     CLEAR_CHECKOUT,
@@ -19,7 +18,6 @@ export const checkout = (products, qty, size, total) => async (dispatch) => {
         type: CLEAR_CHECKOUT
     });
     try {
-        console.log('f');
         if (products.length > 0) {
             const items = {};
             products.map(
